@@ -1,0 +1,267 @@
+⚠️ **TEMPLATE EXAMPLE - CUSTOMIZE FOR YOUR STRATEGY REPOSITORY**
+
+> **📋 Template Notice**: This document contains a comprehensive strategy repository framework from "Elly Analytics" that demonstrates professional strategic planning and information architecture. When using this template:
+> - Replace all `[COMPANY_NAME]` and `[PLACEHOLDER]` values with your actual company information
+> - Adapt the competitive analysis process and positioning framework for your specific industry
+> - Customize the strategic context section with your real product architecture and business model
+> - Update file references and folder structure to match your actual repository organization
+> - This example shows sophisticated information architecture principles that prevent duplication and maintain consistency
+
+---
+
+# [COMPANY_NAME] Strategy Repository - Template Rules
+
+## Repository Overview
+This is the strategy repository within the [COMPANY_NAME] workspace - containing comprehensive strategic planning, competitive intelligence, and strategic decision-making documentation. This serves as the strategic brain of the organization.
+
+**Treat this as architectural documentation for building [COMPANY_NAME]** - every piece of information, analysis, and strategic decision must flow from authoritative sources through a clear hierarchy. This is not a collection of business descriptions, but a precise technical blueprint where strategic decisions are documented with the same rigor as software architecture.
+
+## Project Structure
+The strategy repository contains clean, factual documentation across core strategic areas:
+
+```
+strategy/ (this repository)
+├── Company-Overview/        # Mission, vision, values, company foundation
+├── Product/                 # Product specs, features, use cases  
+├── Business-Model/          # Pricing, unit economics, revenue model
+├── Team/                    # Founders, team structure, advisors, culture
+├── Financials/              # Funding, metrics, projections, unit economics
+├── User-Research/           # User research, market insights, customer feedback
+├── Pitch-Materials/         # Pitch decks, presentation templates
+├── Investor-Updates/        # Historical investor communications
+├── Competitors/             # Comprehensive competitive intelligence
+└── executive-summary.md     # One-page company overview with competitive positioning
+```
+
+---
+
+# PROCEDURAL RULES
+
+## Information Architecture & Duplication Prevention
+
+### Core Principle
+Treat this specification as the blueprint for building [COMPANY_NAME] - eliminate ambiguities, unnecessary duplicates, inconsistencies, and unclear sources while maintaining high "thought density."
+
+### 1. Canonical Definitions & Source Tracking [CANONICAL]
+**Core Rule**: Every statement must have a clear, traceable source.
+
+**Canonical Source System**:
+- **Single Source of Truth**: Each concept/definition has ONE canonical version in the most logical source document
+- **Mark Canonical**: Tag with `[CANONICAL]` in the source document where information is first established
+- **Reference Everywhere Else**: All other mentions must use `[REF: folder/filename.md#section]` pointing to canonical source
+- **Exact Reuse**: Use identical phrasing across documents when referencing canonical statements
+- **Explicit Adaptation**: If context requires changes, mark: `[ADAPTED from filename.md: "original" → "adapted"]`
+
+**Source Tracking Requirements**:
+- **No Orphan Statements**: Every claim, metric, or strategic assertion must be traceable to its origin
+- **Clear Attribution**: Mark where information came from: team confirmation, external research, calculations, etc.
+- **Update Propagation**: When changing canonical version, search and update all `[REF:]` references
+- **Searchable References**: Use consistent `[REF:]` format to enable finding all dependencies
+
+**Example Implementation**:
+```
+// In Team/team-overview.md:
+**Total Headcount**: [X] people (as of [DATE]) [CANONICAL]
+
+// In other files:
+Team size of [X] people [REF: Team/team-overview.md#current-team-size]
+Current [X]-person team [REF: Team/team-overview.md#current-team-size]
+```
+
+**Update Workflow**:
+1. Change canonical version: `[X] people → [Y] people [CANONICAL]`
+2. Search repository for: `[REF: Team/team-overview.md#current-team-size]`
+3. Update all found references to reflect new canonical information
+4. Verify consistency across all documents
+
+### 2. Reference Architecture
+- **Format**: `[REF: folder/filename.md#section]` for searchable cross-references
+- **Dependency Hierarchy**: 
+  ```
+  Source Documents (Company-Overview through Business-Model folders)
+  ↓
+  Analysis (Competitors/)
+  ↓
+  Summaries (competitive-landscape-summary.md)
+  ↓
+  Executive Overview (executive-summary.md)
+  ↓
+  Pitch Materials (derived only, no original content)
+  ```
+- **Update Propagation**: Check dependency chain when updating, suggest options if unclear
+
+### 3. Strategic Repetition Rules
+- **With Source**: Only repeat when adding value, always include `[REF: source]`
+- **Unique Angle**: Mark explicitly: `[UNIQUE ANGLE: context/perspective]`
+- **High Thought Density**: Every repeated element must add significant value
+- **No Within-Document Duplication**: Avoid repeating same content in single document
+
+### 4. Data Accuracy & Source Tracking
+- **[CANONICAL]**: The authoritative definition/data point in the knowledge base
+- **[CONFIRMED: source]**: Information directly provided by team
+- **[PLACEHOLDER: owner]**: Information to be filled with clear ownership
+- **[REF: folder/filename.md#section]**: Cross-references for searchability
+
+### 5. Historical Document Protection
+- **DO NOT EDIT**: Published investor updates, press releases, legal documents
+- **Preserve Exactly**: Historical financials and sent communications
+- **Create New Versions**: With clear date labels for updates
+
+## Strategic Positioning Rules
+
+### Market Focus [CANONICAL]
+- **Primary Target**: [TARGET_MARKET] businesses spending >[THRESHOLD]/month on [PRIMARY_EXPENSE]
+- **Sweet Spot**: $[MIN]-[MAX]/month [SPEND_CATEGORY] companies seeking [VALUE_PROPOSITION] vs [ALTERNATIVE_PRICING_MODEL]
+- **Market Gap**: [TARGET_MARKET] businesses underserved by [COMPETITOR_FOCUS]-focused [CATEGORY] platforms
+- **Geographic Scope**: Primary focus [REGION_1] ([X]% of revenue), secondary markets in [REGION_2], select clients globally
+- **Core Differentiation**: [EXPERTISE_1] + [INNOVATION] ("[ANALOGY]") vs competitors' [LIMITATION] solutions
+- **Technology Position**: [INTERFACE_TYPE] for [USE_CASE] vs [COMPETITOR_APPROACH]
+
+### Competitive Messaging [REF: Competitors/competitive-landscape-summary.md#competitive-messaging]
+
+#### [PRODUCT_V1] Competition ([CATEGORY_1]) [REF: Competitors/competitive-landscape-summary.md#product-v1-competition]
+- **vs [CATEGORY_1] Platforms** ([COMPETITOR_A], [COMPETITOR_B]): [SPECIALIZATION] + [ADVANTAGE_1] + [ADVANTAGE_2]
+- **vs [CATEGORY_2] Tools** ([COMPETITOR_C], [COMPETITOR_D]): [FEATURE_1] + [FEATURE_2] + [INTEGRATION_DEPTH]
+- **vs [CATEGORY_3] Platforms**: [FOCUS_AREA] vs [COMPETITOR_FOCUS]
+
+#### [PRODUCT_V2] Competition ([CATEGORY_2]) [REF: Competitors/competitive-landscape-summary.md#product-v2-competition]
+- **vs [AUTOMATION_TYPE] Platforms** ([COMPETITOR_E], [COMPETITOR_F]): "[VISION_PHRASE]" [INTERFACE] across [X] core use cases vs [COMPETITOR_LIMITATION], [SCOPE] vs [COMPETITOR_SCOPE], [DATA_ADVANTAGE] vs [COMPETITOR_DATA_LIMITATION]
+- **Key Differentiators**: [FOUNDATION], [COVERAGE], "[ANALOGY]" [INTERFACE] vs [COMPETITOR_INTERFACE]
+- **Competitive Advantage**: Only [COMPREHENSIVE_SOLUTION] built on [EXPERTISE] and [DATA_DEPTH]
+
+#### Combined Positioning [REF: Competitors/competitive-landscape-summary.md#combined-positioning]
+- **Unique Advantage**: Only platform combining [EXPERTISE] with [COMPREHENSIVE_SOLUTION] across [X] core use cases
+- **Data Foundation**: [AUTOMATION] built on [DATA_TYPE], not just [COMPETITOR_DATA_TYPE]
+- **Market Gap**: [TARGET_MARKET] underserved by [COMPETITOR_FOCUS_1] and [FRAGMENTATION_ISSUE]
+- **Vision Advantage**: "[VISION_PHRASE]" - transform [INDUSTRY] from [CURRENT_STATE] to [FUTURE_STATE]
+
+## Competitor Analysis Process [CANONICAL]
+
+**Deep Research Required**: When user requests competitor analysis, conduct comprehensive research across multiple sources. Key areas to research: product pages, pricing pages, founder backgrounds, press releases, funding announcements, G2/Capterra reviews, case studies, use cases, performance claims, customer testimonials, and strategic partnerships. Use web search for funding rounds, founder LinkedIn profiles, industry coverage, and competitor comparisons.
+
+**Process**:
+1. **Research**: Conduct comprehensive research per requirements above
+2. **Create**: `[company-name]-analysis.md` using 11-section template (Company Overview → Bottom Line)
+3. **Classify**: [CATEGORY_1] ([EXAMPLE_A]) | [CATEGORY_2] ([EXAMPLE_B]) | [CATEGORY_3] ([EXAMPLE_C])
+4. **Update Summary**: Update `competitive-landscape-summary.md` with cross-references
+
+## Common Use Cases
+
+- **Pitch Deck Creation**: Pull from Company-Overview, Product/, Business-Model, Team, and Competitors Analysis
+- **Investor Due Diligence**: Focus on Market-Analysis, Business-Model, Financials, and Competitors
+- **Team Onboarding**: Use Company-Overview, Product, Team, and Competitors
+- **Strategic Planning**: Reference Market-Analysis, Business-Model, Investor-Updates, and Competitors
+- **Fundraising Materials**: Combine executive-summary.md with competitive analysis
+- **Competitive Analysis**: Deep dive into Competitors/ for threat assessment and positioning
+- **New Competitor Research**: Follow comprehensive analysis process and update competitive summary
+
+---
+
+# CURRENT STRATEGIC CONTEXT
+*[TEMPLATE EXAMPLE] - Replace with your company's actual strategic information*
+
+## Product Architecture [REF: Product/]
+
+### [PRODUCT_V1] - [FOUNDATION_PLATFORM] (Current Production) [REF: Product/product-overview.md#product-v1-foundation]
+- **Purpose**: [CORE_PLATFORM] with [FEATURE_1], [FEATURE_2], [FEATURE_3]
+- **Value Proposition**: Solve [PROBLEM] for [TARGET_MARKET] with [SOLUTION_APPROACH]
+- **Client Interface**: [REPORTING_TOOL] (version [X.Y]) with [CUSTOMIZATION_LEVEL] dashboards
+- **Key Features**: [FEATURE_1], [FEATURE_2], [FEATURE_3] to [PLATFORMS]
+- **Technology Stack**: [BACKEND_TECH], [DATABASE], [FRONTEND_TECH]
+- **Status**: Production platform serving all current clients with proven ROI
+
+### [PRODUCT_V2] - [AI_LAYER] (In Development) [REF: Product/product-overview.md#product-v2-ai-layer]
+- **Purpose**: [AI_PLATFORM] making "[VISION_PHRASE]" a reality and automating [X]% of [TARGET_ROLE]'s work
+- **Value Proposition**: "[ANALOGY]" - [INTERFACE_TYPE] across [X] core [USE_CASE_CATEGORY] use cases
+- **Client Interface**: [INTERFACE_TECH] for [COMPREHENSIVE_MANAGEMENT]
+- **Key Features**: [X] core use cases - [USE_CASE_1], [USE_CASE_2], [USE_CASE_3], [USE_CASE_4], [USE_CASE_5]
+- **Technology Stack**: [FRONTEND_STACK], connects to [PRODUCT_V1] foundation
+- **Status**: [X] weeks in development, first production feature launching in [TIMEFRAME] with [X] pilot clients
+
+### [PRODUCT_V2] Core Use Cases [REF: Product/product-v2-vision.md#core-use-cases]
+1. **[USE_CASE_1]**: [DESCRIPTION_1]
+2. **[USE_CASE_2]**: [DESCRIPTION_2]
+3. **[USE_CASE_3]**: [DESCRIPTION_3]
+4. **[USE_CASE_4]**: [DESCRIPTION_4]
+5. **[USE_CASE_5]**: [DESCRIPTION_5]
+
+### Combined Value Proposition [REF: Product/product-overview.md#future-state]
+- **Current State**: [PRODUCT_V1] provides [FOUNDATION] + [ANALYTICS] for [USE_CASE]
+- **Future State**: [PRODUCT_V2] creates comprehensive "[VISION_PHRASE]" platform across all [X] core use cases
+- **Unique Position**: [EXPERTISE] + [INTERFACE] + [COMPREHENSIVE_SOLUTION] vs competitors' [LIMITATION] solutions
+
+## Business Model [REF: Business-Model/]
+- **Pricing Philosophy**: [PRICING_TYPE], NOT [ALTERNATIVE_PRICING] (no [PERCENTAGE_MODEL])
+- **Base Price Range**: ~$[X]/month (varies by features selected)
+- **Integration Included**: [X]-[Y] weeks standard onboarding included in subscription
+- **Volume Threshold**: +[X]% markup only for >[THRESHOLD] [UNITS]/day
+- **Competitive Advantage**: Large clients love [ADVANTAGE] vs [COMPETITOR_MODEL] competitors
+
+## Team & Scale [REF: Team/]
+- **Total Headcount**: [X] people ([DATE])
+- **[FOCUS_AREA] Focus**: [X]% of team allocated to [STRATEGIC_INITIATIVE]
+- **Key People**: [FOUNDER_1] ([TITLE_1]), [FOUNDER_2] ([TITLE_2])
+- **Advisors**: [ADVISOR_1] ([EXPERTISE_1]), [ADVISOR_2] ([EXPERTISE_2])
+
+## Market Position [REF: Market-Analysis/, Competitors/]
+- **Target Market**: [TARGET_MARKET] spending >[THRESHOLD]/month on [EXPENSE_CATEGORY]
+- **Sweet Spot**: $[MIN]-[MAX]/month [EXPENSE_CATEGORY] companies
+- **Market Gap**: Most [CATEGORY] platforms focus on [COMPETITOR_FOCUS], leaving [TARGET_MARKET] underserved
+- **Key Differentiator**: Making "[VISION_PHRASE]" a reality through "[ANALOGY]" - [INTERFACE] across [X] core [CATEGORY] use cases
+- **Vision**: Transform [INDUSTRY] from [CURRENT_STATE] to [FUTURE_STATE] across [USE_CASE_LIST]
+
+## Competitive Landscape [REF: Competitors/]
+- **Major Threats**: [COMPETITOR_A] ($[X]M [METRIC]), [COMPETITOR_B] ($[Y]B [METRIC] managed)
+- **Key Advantages**: [ADVANTAGE_1], [ADVANTAGE_2], [ADVANTAGE_3]
+- **Product Structure**: [COMPONENT_1] + [COMPONENT_2] + [COMPONENT_3]
+
+---
+
+# FILE MANAGEMENT GUIDELINES
+
+### When Editing Files
+- **Proper Directory**: Always edit files in their proper directory (e.g., company info goes in Company-Overview/)
+- **Source Everything**: Use specific metrics and numbers with source tracking
+- **Reference Architecture**: Use `[REF:]` tags instead of duplicating content
+- **Mark Everything**: Clearly mark sources, assumptions, estimates, and dependencies
+- **Update Dependencies**: When changing source documents, update downstream files
+
+### Content Quality Standards
+1. **Eliminate Hallucinated Content**: Remove any information not confirmed by team
+2. **Use Real Data**: Specific metrics and examples from actual operations
+3. **Source Every Statement**: Every claim must be either `[CANONICAL]` (first mention) or `[REF:]` (pointing to canonical source)
+4. **Mark Placeholders**: Clear ownership for missing information with `[PLACEHOLDER: owner]`
+5. **Cross-reference**: Link between related documents using `[REF:]` format
+6. **Date Everything**: Include "Last Updated" timestamps
+7. **Maintain Traceability**: When updating canonical information, find and update all references using search
+
+### Template Key Files (Customize for Your Company)
+- **executive-summary.md**: One-page overview with competitive positioning
+- **Product/product-overview.md**: Complete product architecture and features
+- **Business-Model/pricing-model.md**: Comprehensive pricing structure and philosophy
+- **Competitors/competitive-landscape-summary.md**: Strategic competitive analysis
+- **Marketing-Sales/client-case-studies.md**: Client results and testimonials
+
+---
+
+## Template Customization Guide
+
+### To Adapt This Template:
+1. **Replace Placeholders**: Update all `[PLACEHOLDER]` values with your company specifics
+2. **Update File References**: Ensure all `[REF:]` tags point to actual files in your repository
+3. **Customize Categories**: Modify competitor classification and use case categories for your industry
+4. **Set Team Standards**: Train team on canonical definitions and reference architecture
+5. **Establish Workflow**: Implement update propagation process for maintaining consistency
+
+### Key Placeholders to Replace:
+- `[COMPANY_NAME]` - Your company name
+- `[PRODUCT_V1]`, `[PRODUCT_V2]` - Your product names
+- `[TARGET_MARKET]` - Your target customer segment
+- `[VISION_PHRASE]` - Your unique vision/value proposition
+- `[ANALOGY]` - How you position vs known successful products
+- `[EXPERTISE]` - Your core competitive advantage
+- `[USE_CASE_1-5]` - Your five core product use cases
+
+---
+
+[LAST UPDATED: [DATE] - Template created from comprehensive strategy framework]

@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**/node_modules": true,
+			"**/.git": true,
+			"**/.DS_Store": true
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.vscode-typescript-next",
+			"ms-python.python",
+			"ms-toolsai.jupyter",
+			"GitHub.copilot",
+			"GitHub.copilot-chat"
+		]
+	}
+} 

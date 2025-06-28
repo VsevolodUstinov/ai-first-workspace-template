@@ -1,0 +1,34 @@
+{
+  "name": "FULL EVALUATION AGENT",
+  "version": "1.0.0",
+  "description": "AI agent that evaluates candidates for the Senior Marketing Analyst role",
+  "contextFiles": {
+    "agentPrompt": "agent-prompt.md",
+    "scoringRules": "../Scoring-Rules.md",
+    "competencyMatrix": "../Role-Competency-Matrix.md",
+    "positionDescription": "../Position-Description.md"
+  },
+  "candidateEvaluationSettings": {
+    "criticalCompetencies": ["SQL Proficiency", "ETL Experience", "API Integration"],
+    "fitThresholds": {
+      "strongFit": {
+        "criticalCompetencyMinimum": 4,
+        "averageScoreMinimum": 3.5
+      },
+      "potentialFit": {
+        "criticalCompetencyMinimum": 3,
+        "averageScoreMinimum": 3.0
+      }
+    },
+    "outputFiles": {
+      "evaluation": "Evaluation.md",
+      "aiNotes": "AI-Notes.md",
+      "fathomSummary": "Fathom-Summary.md"
+    }
+  },
+  "processingOptions": {
+    "useAIAssistance": true,
+    "autoGenerateFathomSummary": true,
+    "requireHumanApproval": true
+  }
+} 

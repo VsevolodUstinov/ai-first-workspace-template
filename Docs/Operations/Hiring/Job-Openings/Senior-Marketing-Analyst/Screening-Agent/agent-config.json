@@ -1,0 +1,50 @@
+{
+  "name": "[COMPANY_NAME] Screening Agent",
+  "version": "1.0.0",
+  "description": "AI agent that performs initial screening of candidates for the Senior Marketing Analyst role",
+  "contextFiles": {
+    "agentPrompt": "agent-prompt.md",
+    "generalHiringPolicy": "../../Global-Rules/General-Hiring-Policy.md",
+    "scoringFramework": "../../Global-Rules/Scoring-Framework.md",
+    "interviewGuidelines": "../../Global-Rules/Interview-Guidelines.md",
+    "positionDescription": "../Position-Description.md",
+    "competencyMatrix": "../Role-Competency-Matrix.md"
+  },
+  "candidateEvaluationSettings": {
+    "criticalCompetencies": ["SQL Proficiency", "ETL Experience", "API Integration", "Role Expectation Alignment"],
+    "fitThresholds": {
+      "strongFit": {
+        "criticalCompetencyMinimum": 4,
+        "averageScoreMinimum": 3.5
+      },
+      "potentialFit": {
+        "criticalCompetencyMinimum": 3,
+        "averageScoreMinimum": 3.0
+      }
+    },
+    "outputFiles": {
+      "screening": "Screening-Evaluation.md",
+      "aiNotes": "AI-Notes.md"
+    }
+  },
+  "processingOptions": {
+    "useAIAssistance": true,
+    "requireHumanApproval": true
+  },
+  "expectationAssessment": {
+    "enableRoleAlignmentCheck": true,
+    "roleExpectationFactors": [
+      "Technical vs. Business Task Balance",
+      "Strategic Decision-Making Involvement",
+      "Career Trajectory Analysis",
+      "Stated Motivations and Interests"
+    ],
+    "redFlags": [
+      "Preference for strategic over technical work",
+      "Desire to influence product development",
+      "Career history showing progression away from technical roles",
+      "Stated interest in business decision-making",
+      "Emphasis on creating features or growing products"
+    ]
+  }
+} 

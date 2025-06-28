@@ -1,0 +1,32 @@
+# AI First Workspace Template - Git Ignore Configuration
+
+# Ignore all department repositories in Docs/ (they are separate git repos)
+Docs/** 
+
+# Ignore all technical repositories in Dev/ (they are separate git repos)
+Dev/**
+
+# Ignore Projects repository and any sub-project repos it contains
+Projects/**
+
+# Ignore presales repository (it's a separate git repo)
+Presales/**
+
+# Ignore personal folders
+Personal/**
+
+# Track workspace configuration only:
+# - .cursorrules (shared context)
+# - README.md (documentation)
+# - setup/ (scripts and configuration)
+
+# Standard ignores
+.DS_Store
+.vscode/
+.cursor/
+*.log
+*.tmp
+
+# Backup files
+*-backup/
+*-old/ 

@@ -1,0 +1,156 @@
+⚠️ **TEMPLATE EXAMPLE - PROJECT MANAGEMENT FRAMEWORK**
+
+> **📋 Template Notice**: This document contains a comprehensive project management framework from "Elly Analytics" that demonstrates professional project tracking and team coordination. When using this template:
+> - Replace all company names, analyst names, and specific project details with your actual team information
+> - Adapt the industry categories and specializations to match your business focus areas
+> - Customize the team structure and workload metrics for your organization size
+> - Update the statistical tracking and optimization recommendations for your workflow
+> - This example shows sophisticated project portfolio management principles and team allocation strategies
+
+---
+
+# Projects Repository - Template Framework
+
+## 📊 Project Portfolio Structure [TEMPLATE EXAMPLE]
+
+### 🏷️ Repository Purpose
+The **Projects** repository contains:
+- **project_statuses/** - status tracking for all client projects ([X] projects)
+- Individual client project sub-repositories
+- Central hub for project portfolio management
+
+### 👥 Team Structure ([X] people + [Y] unassigned projects) [TEMPLATE EXAMPLE]
+
+#### Active Analysts and Their Projects:
+1. **👩‍💼 [Analyst Name A]** ([X] projects) - [Specialization A], [Specialization B], [Specialization C]
+   - [Example Project 1], [Example Project 2], [Example Project 3]
+   
+2. **👨‍💼 [Analyst Name B]** ([X] active + [Y] inactive)
+   - Active: [Project List]
+   - Inactive: [Project List]
+   
+3. **👨‍💼 [Analyst Name C]** ([X] active + [Y] inactive) 
+   - Active: [Project List]
+   - Inactive: [Project List]
+
+#### ❓ Unassigned Projects ([X] projects):
+- [Example Unassigned Projects List]
+
+### 📁 Project File Structure [TEMPLATE EXAMPLE]
+
+#### Each project should contain:
+```
+project_name.md
+├── 🏷️ Information Sources
+├── 📊 General Information
+│   ├── Analyst
+│   ├── Project Manager  
+│   ├── Status
+│   └── Last Update
+├── 🎯 Current Tasks
+│   ├── ✅ Completed Work
+│   ├── 🔄 In Progress
+│   └── ⚠️ Blockers
+├── 🔧 Technical Features
+├── 📈 Development Plans
+└── 💡 Notes
+```
+
+### 🎯 Project Management Rules [TEMPLATE EXAMPLE]
+
+#### When working with projects:
+1. **Always assign analyst** - each project must have designated analyst
+2. **Update statuses** - regularly update progress information
+3. **Document blockers** - clearly document obstacles
+4. **Reference sources** - link to meetings and documents
+
+#### Maximum workload:
+- **[X] active projects** per analyst (recommendation)
+- **Current overloads**: [Analyst Name] ([X]), [Analyst Name] ([X] total)
+- **Underutilized**: [Analyst Name] ([X] project)
+
+### 📈 Industry Specialization [TEMPLATE EXAMPLE]
+
+#### By industries ([X] active projects):
+- **📈 [Industry Category]**: [X] projects ([Y]%)
+- **🏠 [Industry Category]**: [X] projects ([Y]%)
+- **🧴 [Industry Category]**: [X] projects ([Y]%)
+- **💊 [Industry Category]**: [X] projects ([Y]%)
+- **🎰 [Industry Category]**: [X] projects ([Y]%)
+- **📅 [Industry Category]**: [X] projects ([Y]%)
+- **🚗 [Industry Category]**: [X] projects ([Y]%)
+- **🍽️ [Industry Category]**: [X] project ([Y]%)
+- **🔧 [Industry Category]**: [X] project ([Y]%)
+
+### ⚖️ Load Balancing [TEMPLATE EXAMPLE]
+
+#### Critical areas:
+- **Overloaded**: [Analyst Name] ([X]), [Analyst Name] ([X] total)
+- **Underutilized**: [Analyst Name] ([X])
+- **Unassigned**: [X] projects without analyst
+
+#### Redistribution recommendations:
+1. Assign [X-Y] projects from TBD list to [Underutilized Analyst]
+2. Consider transferring [X-Y] projects from [Overloaded Analyst] to other analysts
+3. [Specific Analyst]: decide on inactive projects
+
+### 🔄 Update Processes [TEMPLATE EXAMPLE]
+
+#### README.md updates:
+- **Structure**: Grouping by analysts (not by industries)
+- **Statistics**: Automatic workload calculation
+- **Recommendations**: Current optimization suggestions
+
+#### Project statuses:
+- **✅ Active** - project in active development
+- **⏸️ Paused** - temporarily inactive
+- **🚀 Launching** - preparation for active phase
+
+### 💡 AI Context Guidelines [TEMPLATE EXAMPLE]
+
+When working with projects remember:
+- **Always check analyst workload** before assigning new projects
+- **Consider specialization** when recommending assignments
+- **Monitor portfolio balance** - avoid industry concentration
+- **Update statistics** after assignment changes
+- **Suggest concrete actions** for balancing problems
+
+### 📊 Key metrics for tracking:
+- Number of active projects per analyst
+- Percentage of unassigned projects
+- Industry distribution
+- Active/inactive project ratio
+- Analyst specialization vs assigned projects
+
+### 🎯 Template Project Examples:
+
+#### [Project 1](./project_statuses/project-1.md) - Active Project
+Demonstrates stable project with regular progress, clear technical features, and systematic task tracking.
+
+#### [Project 2](./project_statuses/project-2.md) - Technical Challenges
+Shows project with platform limitations, budget constraints, and effective blocker documentation.
+
+#### [Project 3](./project_statuses/project-3.md) - Blocked Project
+Illustrates project requiring escalation, external coordination, and management intervention strategies.
+
+---
+
+## Template Customization Guide
+
+### To Adapt This Framework:
+1. **Replace Team Structure**: Update analyst names, specializations, and project assignments
+2. **Customize Industries**: Modify industry categories to match your business focus
+3. **Adapt Metrics**: Adjust workload limits and balancing strategies for your team size
+4. **Update Examples**: Replace example projects with your actual project portfolio
+5. **Modify Processes**: Adapt update workflows and status tracking for your organization
+
+### Key Placeholders to Replace:
+- `[Analyst Name]` - Your actual team member names
+- `[X] projects` - Real project counts and workload numbers
+- `[Industry Category]` - Your specific industry focus areas
+- `[Specialization]` - Actual team member expertise areas
+- `[Example Project]` - Your real project names and details
+
+---
+
+*This framework demonstrates sophisticated project portfolio management with realistic load balancing and team coordination strategies.* 

@@ -1,0 +1,124 @@
+⚠️ **TEMPLATE WORKSPACE - READ FIRST**
+
+> **🎯 Template Purpose**: This is the "AI First Workspace Template" - a comprehensive example of how to organize AI-assisted business operations across multiple departments. This template contains real examples from "Elly Analytics" to demonstrate best practices.
+> 
+> **👨‍💻 Created by**: Seva Ustinov, based on the Elly Analytics workspace - a real-world implementation of AI-assisted business operations across strategy, product, marketing, operations, and project management.
+
+## Template vs. Real Project Workflow
+
+### 🔧 **Template Mode** (Default State)
+When you first open this workspace, you are in **Template Mode**:
+- All content serves as examples and educational materials
+- Use this to explore structure, learn methodologies, and understand frameworks
+- All documents are marked with template notices and placeholder systems
+- Perfect for understanding how to organize your own business operations
+
+### 🚀 **Real Project Mode** (After Customization)
+Once you mention your real company/project details, I will:
+- **Switch to Real Project Mode** and help you customize this template
+- **Remove template notices** and replace placeholders with your actual information
+- **Adapt all frameworks** to your specific business context and industry
+- **Maintain the organizational structure** while making it yours
+
+### 🔄 **How to Transition**
+Simply tell me about your real project by saying something like:
+- "I want to adapt this for [Your Company Name]"
+- "Help me customize this template for my [industry/business type]"
+- "Let's replace the examples with my real project: [project details]"
+
+**I will then ask for your specific details and systematically help you transform this template into your actual business workspace.**
+
+---
+
+# [COMPANY NAME] Workspace - Management & Department Switching
+
+> **📝 File Purpose**: This file contains ONLY workspace management and department switching logic relevant to everyone. Keep it as short as possible. Department-specific context, behaviors, procedures, and detailed rules belong in `Docs/[Department]/.cursorrules` files.
+
+## Workspace Overview
+You are working in the [COMPANY NAME] management workspace with access to multiple department repositories and AI context switching capabilities.
+
+## Workspace Structure
+- **Docs/Strategy/** - Company strategy, competitive intel, executive decisions [SEPARATE GIT REPO]
+- **Docs/Product/** - Product roadmap, specs, user research, technical planning [SEPARATE GIT REPO]
+- **Docs/SalesAndMarketing/** - Campaigns, content, sales process, go-to-market [SEPARATE GIT REPO]
+- **Docs/Operations/** - Operational processes & metrics [SEPARATE GIT REPO]
+- **Docs/Operations/Hiring/** - Hiring processes & recruitment workflows [SEPARATE GIT REPO]
+- **Docs/Finance/** - Financial models, projections [SEPARATE GIT REPO]
+- **Docs/Legal-HR/** - Contracts, policies, hiring [SEPARATE GIT REPO]
+- **Dev/[ProductName]/**, **Dev/[ProductName2]/**, **Dev/[ProductName3]/** - Technical codebases for reference [SEPARATE GIT REPOS]
+- **Projects/** - Client projects repository (container for per-client project repos) [SEPARATE GIT REPO]
+- **Presales/** - Presales materials and proposals [SEPARATE GIT REPO]
+
+### Important: Repository Structure
+Each department directory under `Docs/` is a **separate git repository**. When committing changes:
+- Navigate to the specific directory (e.g., `cd Docs/Strategy`)
+- Use git commands within that directory
+- The main SharedWorkspace `.gitignore` excludes Docs/ directories
+
+## Workspace Management & Updates
+
+- **"Update all"** = Run `bash setup/update-all.sh` to pull latest changes from all repositories
+- **Daily workflow**: Use update script every morning to sync all Docs/, Dev/, Projects/, and Presales repos
+
+## Department Context Switching
+
+### How Context Switching Works
+When user requests a department context, read the detailed cursorrules file from that department for complete context and behavioral guidelines:
+
+- **"Use strategy context"** → Read `Docs/Strategy/.cursorrules` for strategy focus, company context, and competitive positioning
+- **"Use product context"** → Read `Docs/Product/.cursorrules` for product development focus and technical context
+- **"Use marketing context"** → Read `Docs/SalesAndMarketing/.cursorrules` for go-to-market focus and campaign context
+- **"Use operations context"** → Read `Docs/Operations/.cursorrules` for operational focus
+- **"Use hiring context"** → Read `Docs/Operations/Hiring/.cursorrules` for hiring and recruitment focus
+- **"Use finance context"** → Read `Docs/Finance/.cursorrules` for financial focus
+- **"Use general context"** → Use general workspace guidelines without department-specific context
+
+### Current Active Context
+Remember and maintain the user's active department context until they explicitly switch to another department.
+
+### Department-Specific Behavior
+**ALWAYS read the relevant department's cursorrules file for complete context, detailed procedures, focus areas, and specific behavioral guidelines. This file contains only workspace management and switching logic.**
+
+## Cross-Department Collaboration
+
+### Universal Guidelines
+- Maintain your primary department perspective while understanding others' priorities
+- Reference relevant context from other departments as needed (most company data is transparent)
+- Suggest improvements that consider strategic business impact
+- Frame suggestions in terms of cross-departmental benefits
+- Respect client data privacy - only reference client-specific information when relevant to the project team
+
+### Language Policy
+- **Default language**: English (US) for all company-wide documentation
+- **New documents**: Create in English by default
+- **Existing documents**: Keep in their native language to not disrupt team workflow
+- **Conversion suggestions**: Only suggest converting to English when relevant to the task
+- **Follow explicit guidance**: User instructions, detailed rules, or document language preferences override defaults
+- **Team context**: Adapt language preferences based on your team's primary language and client base
+
+### File Reference Standards
+- Use relative paths when referencing other departments: `../Docs/Product/roadmap/`, `../Docs/Strategy/Competitors/`
+- Use `../Dev/` for technical codebase references, `../Projects/` for client work, `../Presales/` for sales materials
+- Reference Strategy department context for company-wide strategic messaging
+- Maintain consistent strategic messaging across all departments
+
+## Git Workflow Guidelines
+
+**For AI Assistant:**
+- **NEVER PUSH TO REPOSITORIES** - Always get explicit user confirmation before any `git push` command
+- **NEVER commit changes** until user indicates a logical piece of work is complete
+- **NEVER assume user emails** - Always ask for their GitHub email when setting up SSH keys
+- **NEVER edit root cursor rules (this file)** - unless user explicitly asks (the entire company uses this file, so we are extremely careful and diligent about changing anything here)
+- **Track user focus changes** - When user switches tasks/topics, suggest committing previous work first
+- **Suggest commits** when a coherent set of changes is ready (e.g., "Ready to commit these changes?")
+- **Suggest pushes** after completing work sessions, but wait for user approval
+- **Respect developer workflows** - Technical repositories (Dev/) follow branch/PR processes
+- **No direct changes to Dev/** - Technical repos require developer onboarding and review processes
+
+**For Users:**
+- **Control your commits** - You decide when changes are ready to commit locally
+- **Logical commit points** - Commit when completing a feature, fix, or coherent set of changes
+- **Review before committing** - Check `git status` and `git diff` to understand what you're committing
+- **Push regularly** to share work with team members after committing
+- **Coordinate pushes** for important changes that affect others
+- **Use `git push origin main`** (or appropriate branch) when ready to share
