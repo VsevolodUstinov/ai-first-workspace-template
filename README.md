@@ -60,8 +60,6 @@ This is the **complete framework** that enables companies to migrate their entir
 
 This template contains **real examples** from Elly Analytics showing:
 
-> **📝 Note about .gitignore:** This template includes `.gitignore.template` instead of `.gitignore` so you can see all example folders on GitHub. When setting up your workspace, this will automatically be copied to `.gitignore` to properly exclude department repositories.
-
 ### 📊 **Complete Department Structure**
 - **Strategy** - Competitive analysis, business planning, executive decision-making
 - **Product** - Roadmaps, specifications, user research, technical planning  
@@ -119,6 +117,10 @@ This framework was developed and battle-tested at **Elly Analytics**, a 40+ pers
 ---
 
 ## 🏗️ Implementation Guide
+
+> ### 📝 **Note about .gitignore**
+> 
+> This template includes `.gitignore.template` instead of `.gitignore` so you can see all example folders on GitHub. When setting up your workspace, this will automatically be copied to `.gitignore` to properly exclude department repositories.
 
 > ### ⚠️ **IMPORTANT: DON'T DO THIS MANUALLY!**
 > 
