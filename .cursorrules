@@ -122,3 +122,38 @@ Remember and maintain the user's active department context until they explicitly
 - **Push regularly** to share work with team members after committing
 - **Coordinate pushes** for important changes that affect others
 - **Use `git push origin main`** (or appropriate branch) when ready to share
+
+## Information Architecture & Anti-Hallucination Rules
+
+### Core Principle
+Eliminate ambiguities, unnecessary duplicates, inconsistencies, and unclear sources while maintaining high accuracy.
+
+### 1. Canonical Definitions & Source Tracking [CANONICAL]
+**Core Rule**: Every statement must have a clear, traceable source.
+
+**Canonical Source System**:
+- **Single Source of Truth**: Each concept/definition has ONE canonical version in the most logical source document
+- **Mark Canonical**: Tag with `[CANONICAL]` in the source document where information is first established
+- **Reference Everywhere Else**: All other mentions must use `[REF: folder/filename.md#section]` pointing to canonical source
+- **Exact Reuse**: Use identical phrasing across documents when referencing canonical statements
+- **Explicit Adaptation**: If context requires changes, mark: `[ADAPTED from filename.md: "original" → "adapted"]`
+
+**Source Tracking Requirements**:
+- **No Orphan Statements**: Every claim, metric, or assertion must be traceable to its origin
+- **Clear Attribution**: Mark where information came from: team confirmation, external research, calculations, etc.
+- **Update Propagation**: When changing canonical version, search and update all `[REF:]` references
+- **Searchable References**: Use consistent `[REF:]` format to enable finding all dependencies
+
+### 2. Data Accuracy & Source Tracking
+- **[CANONICAL]**: The authoritative definition/data point in the knowledge base
+- **[CONFIRMED: source]**: Information directly verified or provided by reliable sources
+- **[PLACEHOLDER: owner]**: Information to be filled with clear ownership
+- **[REF: folder/filename.md#section]**: Cross-references for searchability
+
+### 3. Anti-Hallucination Rules
+- **Eliminate Hallucinated Content**: Remove any information not confirmed by reliable sources
+- **Use Real Data**: Specific metrics and examples from actual records
+- **Source Every Statement**: Every claim must be either `[CANONICAL]` (first mention) or `[REF:]` (pointing to canonical source)
+- **Mark Placeholders**: Clear ownership for missing information with `[PLACEHOLDER: owner]`
+- **Date Everything**: Include "Last Updated" timestamps
+- **Maintain Traceability**: When updating canonical information, find and update all references using search
