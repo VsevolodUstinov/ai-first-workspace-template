@@ -66,9 +66,9 @@ def detect_workspace():
         output_path = os.path.join(base_path, "Docs", "My Company Example", "Marketing-Sales", "Sales Calls")
         return "Personal-Super-Agent", output_path
     elif "ai-first-workspace-template" in current_path:
-        # Navigate to appropriate folder in AI-First workspace
+        # Navigate to SalesAndMarketing/Sales Calls in AI-First workspace
         base_path = current_path.split("ai-first-workspace-template")[0] + "ai-first-workspace-template"
-        output_path = os.path.join(base_path, "Sales Calls")
+        output_path = os.path.join(base_path, "Docs", "SalesAndMarketing", "Sales Calls")
         return "AI-First-Workspace", output_path
     else:
         return "Unknown", os.path.join(SCRIPT_DIR, "output")
