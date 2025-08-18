@@ -1,7 +1,7 @@
 # Automated Sales Meeting Analysis
 **Client:** XS Discovery Call  
-**Version:** v02  
-**Generated:** 2025-08-18 09:36:15  
+**Version:** v04  
+**Generated:** 2025-08-18 09:40:15  
 **Workspace:** AI-First-Workspace  
 **Meeting ID:** 01K1ZF3FGSY686JHZV0QSFG57K  
 **Template:** prompt_internal  
@@ -42,5 +42,5 @@
 ---
 
 *This analysis was generated automatically using the Sales Meeting Processing system.*
-*Session: `XS Discovery Call v02`*
+*Session: `XS Discovery Call v04`*
 *File: `Short Version for Slack.md`*
