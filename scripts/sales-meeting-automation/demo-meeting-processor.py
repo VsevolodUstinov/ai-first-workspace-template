@@ -66,9 +66,9 @@ def detect_workspace():
         output_path = os.path.join(base_path, "Docs", "My Company Example", "Marketing-Sales", "Sales Calls")
         return "Personal-Super-Agent", output_path
     elif "ai-first-workspace-template" in current_path:
-        # Navigate to SalesAndMarketing/Sales Calls in AI-First workspace
+        # Navigate to appropriate folder in AI-First workspace
         base_path = current_path.split("ai-first-workspace-template")[0] + "ai-first-workspace-template"
-        output_path = os.path.join(base_path, "Docs", "SalesAndMarketing", "Sales Calls")
+        output_path = os.path.join(base_path, "Sales Calls")
         return "AI-First-Workspace", output_path
     else:
         return "Unknown", os.path.join(SCRIPT_DIR, "output")
@@ -411,45 +411,23 @@ def get_mock_analysis(template_name):
 Demo scheduled for Jan 22, prepare custom ROI analysis
 """
 
-# Global variable to track current session
-_current_session_folder = None
+# Demo folder configuration - always overwrite for clean demo experience
+DEMO_FOLDER_NAME = "XS Discovery Call Demo"
 
-def get_next_version_folder():
-    """Get next version folder for this session"""
-    global _current_session_folder
-    
-    if _current_session_folder is None:
-        # Check existing version folders
-        existing_folders = [d for d in os.listdir(OUTPUT_DIR) 
-                           if os.path.isdir(os.path.join(OUTPUT_DIR, d)) 
-                           and d.startswith(f"{DEMO_CLIENT_NAME} v")]
-        
-        if not existing_folders:
-            version = 1
-        else:
-            # Extract version numbers
-            versions = []
-            for folder in existing_folders:
-                try:
-                    version_part = folder.split(" v")[-1]
-                    version_num = int(version_part)
-                    versions.append(version_num)
-                except ValueError:
-                    continue
-            
-            version = max(versions) + 1 if versions else 1
-        
-        _current_session_folder = f"{DEMO_CLIENT_NAME} v{version:02d}"
-    
-    return _current_session_folder
+def get_demo_folder():
+    """
+    Get the fixed demo folder name for consistent demo experience.
+    Files are overwritten on each run for clean presentation.
+    """
+    return DEMO_FOLDER_NAME
 
 def save_analysis_to_file(analysis, template_name):
-    """Save analysis to file in versioned session directory"""
+    """Save analysis to file in demo directory (overwrites for clean demo)"""
     
-    # Get versioned folder for this session
-    session_folder = get_next_version_folder()
-    session_output_dir = os.path.join(OUTPUT_DIR, session_folder)
-    os.makedirs(session_output_dir, exist_ok=True)
+    # Get demo folder (always the same for consistent demo)
+    demo_folder = get_demo_folder()
+    demo_output_dir = os.path.join(OUTPUT_DIR, demo_folder)
+    os.makedirs(demo_output_dir, exist_ok=True)
     
     # English filenames based on template type
     if template_name == "prompt_internal":
@@ -459,15 +437,15 @@ def save_analysis_to_file(analysis, template_name):
     else:
         filename = f"{template_name}.md"
     
-    filepath = os.path.join(session_output_dir, filename)
+    filepath = os.path.join(demo_output_dir, filename)
     
-    # Extract version number for metadata
-    version = session_folder.split(" v")[-1]
+    # Demo version for metadata
+    demo_version = "Demo"
     
     # Create content with metadata
     content = f"""# Automated Sales Meeting Analysis
 **Client:** {DEMO_CLIENT_NAME}  
-**Version:** v{version}  
+**Version:** {demo_version}  
 **Generated:** {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}  
 **Workspace:** {WORKSPACE_NAME}  
 **Meeting ID:** {DEMO_MEETING_ID}  
@@ -481,7 +459,7 @@ def save_analysis_to_file(analysis, template_name):
 ---
 
 *This analysis was generated automatically using the Sales Meeting Processing system.*
-*Session: `{session_folder}`*
+*Session: `{demo_folder}`*
 *File: `{filename}`*
 """
     
@@ -490,7 +468,7 @@ def save_analysis_to_file(analysis, template_name):
         f.write(content)
     
     # Return filepath and session info for Notion integration
-    return filepath, session_folder, version
+    return filepath, demo_folder, demo_version
 
 def send_to_notion(notion_analysis_file):
     """Send analysis to Notion using the notion integration script"""
@@ -515,8 +493,8 @@ def send_to_notion(notion_analysis_file):
             
             # Generate mock Notion page details
             mock_page_id = f"abc123def456{session_version}"
-            mock_page_url = f"https://www.notion.so/ellyanalytics/XS-Discovery-Call-Notion-{session_version}-{mock_page_id}"
-            page_title = f"XS Discovery Call Notion {session_version}"
+            mock_page_url = f"https://www.notion.so/ellyanalytics/XS-Discovery-Call-Demo-{mock_page_id}"
+            page_title = f"XS Discovery Call Demo"
             
             print(f"✅ Mock Notion page created successfully!")
             print(f"📄 Page Title: {page_title}")
