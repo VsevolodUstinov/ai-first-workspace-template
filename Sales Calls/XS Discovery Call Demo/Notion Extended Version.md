@@ -1,7 +1,7 @@
 # Automated Sales Meeting Analysis
 **Client:** XS Discovery Call  
 **Version:** Demo  
-**Generated:** 2025-08-18 11:36:01  
+**Generated:** 2025-08-18 11:55:41  
 **Workspace:** AI-First-Workspace  
 **Meeting ID:** 01K1ZF3FGSY686JHZV0QSFG57K  
 **Template:** prompt_notion  
