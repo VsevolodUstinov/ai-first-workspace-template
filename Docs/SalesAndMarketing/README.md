@@ -32,6 +32,27 @@ This folder contains comprehensive templates and examples for sales and marketin
 - AI platform vision communication templates
 - Strategic messaging frameworks
 
+### 📞 Client-Meetings-Analysis
+**Purpose:** AI-powered analysis of client meetings for marketing insights
+**Location:** `Client-Meetings-Analysis/`
+- **`AI-Projects-Review-Analysis.md`**: AI analysis of project readiness for testimonial collection
+- **`AI-Review-Update-Process.md`**: Automated process for identifying marketing opportunities
+- **`README.md`**: Workflow instructions for AI-powered marketing analysis
+
+### 🎬 Media Activities
+**Purpose:** Demo materials and presentation resources for webinars and media appearances
+**Location:** `Media activities/`
+- **`Demo Templates/`**: Complete demo workflow materials and templates
+- **`Cursor Case Activities/`**: Webinar scripts and presentation materials
+- **`core-product-announcements.md`**: Product announcement templates
+
+### 🏁 Competitors
+**Purpose:** Live workspace for real-time competitive analysis during demonstrations
+**Location:** `Competitors/`
+- **Live analysis workspace** for webinar demonstrations
+- **Competitive intelligence** generation in real-time
+- **Strategic recommendations** and action items
+
 ## 🎯 Template Features
 
 ### Professional Marketing Frameworks
@@ -78,6 +99,12 @@ This folder contains comprehensive templates and examples for sales and marketin
 - **Customer Segmentation**: Organize content by your specific customer categories
 - **Competitive Landscape**: Adapt competitive analysis to your specific market
 
+### 5. AI-Powered Workflows (New!)
+- **Live Competitor Analysis**: Use `Competitors/` folder for real-time competitive intelligence
+- **Project-to-Marketing Pipeline**: Leverage `Client-Meetings-Analysis/` for testimonial identification
+- **Demo Scenarios**: Use `Media activities/Demo Templates/` for presentation preparation
+- **Meeting Analysis**: Integrate `Projects/Transcripts/` for automated project status updates
+
 ## 📈 Sales & Marketing Best Practices
 
 ### Customer Success Documentation
@@ -103,6 +130,12 @@ This folder contains comprehensive templates and examples for sales and marketin
 - **Conversion Focus**: Identify and optimize key conversion elements
 - **Messaging Alignment**: Ensure consistency across all marketing materials
 - **Continuous Improvement**: Regular analysis and optimization cycles
+
+### AI-Powered Marketing Workflows
+- **Competitive Intelligence**: Real-time competitor analysis using AI during live demonstrations
+- **Project Pipeline**: Automated identification of projects ready for testimonial collection
+- **Meeting Analysis**: AI processing of team meetings to update project statuses and identify marketing opportunities
+- **Demo Automation**: Structured demo workflows with backup materials and live workspace separation
 
 ## 🔗 Integration with Other Documents
 

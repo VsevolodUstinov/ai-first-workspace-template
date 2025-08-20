@@ -1,0 +1,35 @@
+title: "Cursor как личный суперагент"
+description: "Демонстрация превращения Cursor в персонального AI-агента"
+theme: minima
+
+# GitHub Pages settings
+baseurl: "/Personal-Super-Agent-Ru"
+url: "https://vsevolodvstinov.github.io"
+
+# Navigation
+header_pages:
+  - index.md
+
+# Social links
+author:
+  name: "Сева Устинов"
+  telegram: "https://t.me/seva_ustinov_channel"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Exclude files
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+# Markdown settings
+markdown: kramdown
+highlighter: rouge
+
+# Custom CSS
+sass:
+  style: compressed

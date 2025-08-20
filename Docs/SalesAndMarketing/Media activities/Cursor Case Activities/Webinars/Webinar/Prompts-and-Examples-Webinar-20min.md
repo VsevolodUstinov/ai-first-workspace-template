@@ -4,13 +4,29 @@
 
 ## Preparation checklist
 
-- Will be on Zoom: https://us06web.zoom.us/j/88230810760?pwd=u3NznwB4T19q5OigtrvpUaOLmhJqCW.1&jst=2
+- Will be on Zoom: https://us06web.zoom.us/j/6740582267?pwd=ltAbiJBDOApORc1K6erS95ofcroJbi.1&omn=86427861523
 - Share entire laptop screen
 - Remove anything unnecessary from the screen
 - Open a dedicated Comet window with links: Cursor.com (logged out), screenshots starting from Open Folder (https://github.com/VsevolodUstinov/Personal-Super-Agent-Ru/tree/main/Docs/My%20Company%20Example/Media%20activities/Demo%20Templates/screenshots), WisprFlow (https://wisprflow.ai/), GitHub SuperAgent (https://github.com/VsevolodUstinov/Personal-Super-Agent-Ru/blob/main/README.md), EllyAnalytics.com (https://ellyanalytics.com/), PowerBI dashboard and report (https://elly.pw/b2csubsdemo), AGI.EllyAnalytics.com (https://agi.ellyanalytics.com/), Telegram channel screenshot (https://github.com/VsevolodUstinov/Personal-Super-Agent-Ru/blob/main/Docs/My%20Company%20Example/Media%20activities/Demo%20Templates/screenshots/telegram-channel-seva.png), course announcement info (https://solokumi.com/course_ninjamarketing)
 - Open Cursor on SuperAgent Ru and pull updates
 - Choose model Sonnet 4
 - Backup if the chat misbehaves — show prepared results: Demo 1 case [“Demo 2 case”](https://github.com/VsevolodUstinov/Personal-Super-Agent-Ru/blob/main/Docs/My%20Company%20Example/Media%20activities/Demo%20Templates/Marketing%20Assets/AI-Projects-Review-Analysis.md)
+
+Looms Intro sections:
+
+**"Video 1 Intro (30-45 seconds)"**:
+"Hi, I'm Seva, founder and CEO of Elly Analytics - an AI-first marketing analytics platform for performance marketers.
+I believe the future belongs to AI-first companies. That's why I chose a tool that completely transformed how I think about building a business and handling both personal and work tasks.
+We're talking about Cursor - and yes, everyone thinks it's just for developers. They're wrong.
+Let me show you one incredible example..."
+
+**"Video 2 Intro (45-60 seconds):"**
+"In the first video, I showed you the use case that won over my entire team - product, marketing, operations.
+That was just the beginning.
+Today I'm sharing more use cases, diving deeper into the technical details, and giving you everything you need to start using Cursor like a pro.
+Because here's the thing - while everyone's still thinking Cursor is just a coding tool, smart leaders are already using it to 10x their entire business operations.
+Ready to see how? Let's go..."
+
 
 ## Agenda (blocks)
 
