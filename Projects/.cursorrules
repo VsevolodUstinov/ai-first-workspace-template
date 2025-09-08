@@ -1,156 +1,196 @@
-⚠️ **TEMPLATE EXAMPLE - PROJECT MANAGEMENT FRAMEWORK**
+# TLDV Meeting Transcripts Analysis Project
 
-> **📋 Template Notice**: This document contains a comprehensive project management framework from "Elly Analytics" that demonstrates professional project tracking and team coordination. When using this template:
-> - Replace all company names, analyst names, and specific project details with your actual team information
-> - Adapt the industry categories and specializations to match your business focus areas
-> - Customize the team structure and workload metrics for your organization size
-> - Update the statistical tracking and optimization recommendations for your workflow
-> - This example shows sophisticated project portfolio management principles and team allocation strategies
+## 🏗️ Project Structure
 
----
+### 📂 Main directories:
+- `all_meetings_transcripts/` - **FULL ARCHIVE** of all meetings from TLDV (277 meetings, 272 transcripts)
+- `updated_all_meetings/` - Previous meeting archive (251 meetings)
+- `complete_export/` - Complete meeting export (484 files)
+- `all_transcripts/` - Transcript archive (16 files)
+- `today_meetings/` - Meetings for specific days
+- `project_status/` - Project statuses (31 files for active projects)
 
-# Projects Repository - Template Framework
+### 🛠️ Available scripts:
 
-## 📊 Project Portfolio Structure [TEMPLATE EXAMPLE]
-
-### 🏷️ Repository Purpose
-The **Projects** repository contains:
-- **project_statuses/** - status tracking for all client projects ([X] projects)
-- Individual client project sub-repositories
-- Central hub for project portfolio management
-
-### 👥 Team Structure ([X] people + [Y] unassigned projects) [TEMPLATE EXAMPLE]
-
-#### Active Analysts and Their Projects:
-1. **👩‍💼 [Analyst Name A]** ([X] projects) - [Specialization A], [Specialization B], [Specialization C]
-   - [Example Project 1], [Example Project 2], [Example Project 3]
-   
-2. **👨‍💼 [Analyst Name B]** ([X] active + [Y] inactive)
-   - Active: [Project List]
-   - Inactive: [Project List]
-   
-3. **👨‍💼 [Analyst Name C]** ([X] active + [Y] inactive) 
-   - Active: [Project List]
-   - Inactive: [Project List]
-
-#### ❓ Unassigned Projects ([X] projects):
-- [Example Unassigned Projects List]
-
-### 📁 Project File Structure [TEMPLATE EXAMPLE]
-
-#### Each project should contain:
+#### 1. `tldv_incremental_downloader.py` - **MAIN SCRIPT**
+```bash
+python tldv_incremental_downloader.py --output all_meetings_transcripts
 ```
-project_name.md
-├── 🏷️ Information Sources
-├── 📊 General Information
-│   ├── Analyst
-│   ├── Project Manager  
-│   ├── Status
-│   └── Last Update
-├── 🎯 Current Tasks
-│   ├── ✅ Completed Work
-│   ├── 🔄 In Progress
-│   └── ⚠️ Blockers
-├── 🔧 Technical Features
-├── 📈 Development Plans
-└── 💡 Notes
+- ✅ Checks existing files
+- ✅ Downloads only new meetings (no duplicates)
+- ✅ Creates JSON and TXT files
+- ✅ Updates indexes (JSON + CSV)
+- ✅ API pagination support
+
+#### 2. `tldv_all_transcripts_downloader.py` - Full download
+```bash
+python tldv_all_transcripts_downloader.py --output all_transcripts
 ```
 
-### 🎯 Project Management Rules [TEMPLATE EXAMPLE]
+#### 3. `tldv_transcripts_downloader_cli.py` - By date
+```bash
+python tldv_transcripts_downloader_cli.py --date 2025-06-09
+```
 
-#### When working with projects:
-1. **Always assign analyst** - each project must have designated analyst
-2. **Update statuses** - regularly update progress information
-3. **Document blockers** - clearly document obstacles
-4. **Reference sources** - link to meetings and documents
+### 📊 Index files:
+- `all_meetings_transcripts/meetings_index.json` - Full meeting index with metadata
+- `all_meetings_transcripts/meetings_index.csv` - CSV version for quick search
 
-#### Maximum workload:
-- **[X] active projects** per analyst (recommendation)
-- **Current overloads**: [Analyst Name] ([X]), [Analyst Name] ([X] total)
-- **Underutilized**: [Analyst Name] ([X] project)
+## 🔍 Meeting Transcript Analysis
 
-### 📈 Industry Specialization [TEMPLATE EXAMPLE]
+**IMPORTANT RULE:** Analysis of meeting text and transcripts SHOULD NOT be conducted by automatic scripts.
 
-#### By industries ([X] active projects):
-- **📈 [Industry Category]**: [X] projects ([Y]%)
-- **🏠 [Industry Category]**: [X] projects ([Y]%)
-- **🧴 [Industry Category]**: [X] projects ([Y]%)
-- **💊 [Industry Category]**: [X] projects ([Y]%)
-- **🎰 [Industry Category]**: [X] projects ([Y]%)
-- **📅 [Industry Category]**: [X] projects ([Y]%)
-- **🚗 [Industry Category]**: [X] projects ([Y]%)
-- **🍽️ [Industry Category]**: [X] project ([Y]%)
-- **🔧 [Industry Category]**: [X] project ([Y]%)
+### ✅ Correct approach:
+1. **Loading via AI assistant**: Meeting transcripts should be loaded and analyzed by AI assistant (Claude/GPT) directly
+2. **Interactive analysis**: User can ask AI to analyze specific meetings, asking questions like:
+   - "Analyze the meeting from [date] and highlight key decisions"
+   - "Find action items from meeting [name]"
+   - "Summarize main discussion topics"
+   - "Find meeting with [name] and analyze communication"
 
-### ⚖️ Load Balancing [TEMPLATE EXAMPLE]
+### ❌ Avoid:
+- Automatic text analysis scripts
+- Mass processing without context
+- Predefined analysis templates
 
-#### Critical areas:
-- **Overloaded**: [Analyst Name] ([X]), [Analyst Name] ([X] total)
-- **Underutilized**: [Analyst Name] ([X])
-- **Unassigned**: [X] projects without analyst
+### 📁 File structure for analysis:
+- **JSON files** contain full meeting data with metadata
+- **TXT files** convenient for quick reading by AI assistant
+- **CSV index** helps find needed meeting
 
-#### Redistribution recommendations:
-1. Assign [X-Y] projects from TBD list to [Underutilized Analyst]
-2. Consider transferring [X-Y] projects from [Overloaded Analyst] to other analysts
-3. [Specific Analyst]: decide on inactive projects
+## 🏷️ Information Source Tagging System
 
-### 🔄 Update Processes [TEMPLATE EXAMPLE]
+### 📋 Required tags for project_status/ files:
 
-#### README.md updates:
-- **Structure**: Grouping by analysts (not by industries)
-- **Statistics**: Automatic workload calculation
-- **Recommendations**: Current optimization suggestions
+#### `[MEETING:YYYY-MM-DD]` - Information from specific meeting
+- **Format:** `[MEETING:2025-06-09]` - Manager1 internal meetings client1 client2 client3
+- **Usage:** Specify date and meeting name from transcripts
+- **Example:** `[MEETING:2025-06-23]` - client1-elly internal
 
-#### Project statuses:
-- **✅ Active** - project in active development
-- **⏸️ Paused** - temporarily inactive
-- **🚀 Launching** - preparation for active phase
+#### `[PORTFOLIO:STATUS]` - Information from project portfolio
+- **Options:** `[PORTFOLIO:ACTIVE]`, `[PORTFOLIO:INACTIVE]`
+- **Usage:** Project status in general portfolio
+- **Example:** `[PORTFOLIO:ACTIVE]` - Status from active projects portfolio
 
-### 💡 AI Context Guidelines [TEMPLATE EXAMPLE]
+#### `[STATUS:TYPE]` - Special project statuses
+- **Options:** `[STATUS:LAUNCH]`, `[STATUS:SUPPORT]`, `[STATUS:DEVELOPMENT]`
+- **Usage:** Current project stage
+- **Example:** `[STATUS:LAUNCH]` - Project in launch stage
 
-When working with projects remember:
-- **Always check analyst workload** before assigning new projects
-- **Consider specialization** when recommending assignments
-- **Monitor portfolio balance** - avoid industry concentration
-- **Update statistics** after assignment changes
-- **Suggest concrete actions** for balancing problems
+#### `[ANALYSIS:SOURCE]` - Analytical conclusions
+- **Options:** `[ANALYSIS:INFERRED]`, `[ANALYSIS:INDUSTRY]`, `[ANALYSIS:TECHNICAL]`
+- **Usage:** Information derived from analysis
+- **Example:** `[ANALYSIS:INFERRED]` - E-commerce and Shopify specifics
 
-### 📊 Key metrics for tracking:
-- Number of active projects per analyst
-- Percentage of unassigned projects
-- Industry distribution
-- Active/inactive project ratio
-- Analyst specialization vs assigned projects
+#### `[CLIENT:TYPE]` - Information from client
+- **Options:** `[CLIENT:DIRECT]`, `[CLIENT:FEEDBACK]`, `[CLIENT:REQUIREMENT]`
+- **Usage:** Direct information from client
+- **Example:** `[CLIENT:DIRECT]` - Currency logic requirements
 
-### 🎯 Template Project Examples:
+### 📝 Tag usage rules:
 
-#### [Project 1](./project_statuses/project-1.md) - Active Project
-Demonstrates stable project with regular progress, clear technical features, and systematic task tracking.
+1. **Mandatory**: Each file in `project_status/` must contain section `## 🏷️ Information Sources`
+2. **Date accuracy**: Use exact meeting dates from transcript files
+3. **Multiple sources**: Can specify multiple tags for one project
+4. **Updates**: When adding new information, add corresponding tag
+5. **Traceability**: Each fact must have a source
 
-#### [Project 2](./project_statuses/project-2.md) - Technical Challenges
-Shows project with platform limitations, budget constraints, and effective blocker documentation.
+### 💡 Correct usage examples:
+```markdown
+## 🏷️ Information Sources
+- `[MEETING:2025-06-09]` - Manager1 internal meetings client1 client2 client3
+- `[MEETING:2025-06-23]` - client1-elly internal
+- `[ANALYSIS:TECHNICAL]` - Credit products with return lags
+- `[STATUS:SUPPORT]` - Active project support
+```
 
-#### [Project 3](./project_statuses/project-3.md) - Blocked Project
-Illustrates project requiring escalation, external coordination, and management intervention strategies.
+### 🤖 Analysis workflow:
+1. User specifies which meeting to analyze
+2. AI assistant loads corresponding transcript file
+3. AI conducts analysis considering context and specific user questions
+4. Result provided in understandable format
 
----
+### 💡 Example commands for user:
+```
+"Analyze meeting 'Manager2 / Manager3 / Manager4 | Marketing analyst'"
+"Find all mentions of Client4 project in May meetings"
+"Create summary of meetings with Client5"
+"Find Manager1 and Manager3 meeting from yesterday and highlight tasks"
+"Analyze communication with Elly on Client1 project"
+```
 
-## Template Customization Guide
+## 📈 Project Portfolio (34 projects)
 
-### To Adapt This Framework:
-1. **Replace Team Structure**: Update analyst names, specializations, and project assignments
-2. **Customize Industries**: Modify industry categories to match your business focus
-3. **Adapt Metrics**: Adjust workload limits and balancing strategies for your team size
-4. **Update Examples**: Replace example projects with your actual project portfolio
-5. **Modify Processes**: Adapt update workflows and status tracking for your organization
+### 🟢 Active projects (29):
 
-### Key Placeholders to Replace:
-- `[Analyst Name]` - Your actual team member names
-- `[X] projects` - Real project counts and workload numbers
-- `[Industry Category]` - Your specific industry focus areas
-- `[Specialization]` - Actual team member expertise areas
-- `[Example Project]` - Your real project names and details
+#### FinTech/Trading (36%):
+- Client6, Client7, Client8, Client9
+- Client1, Client10, Client11, Client12, Client13
+- Client14, Client15
 
----
+#### Gaming:
+- Client16, Client17
 
-*This framework demonstrates sophisticated project portfolio management with realistic load balancing and team coordination strategies.* 
+#### E-commerce/Healthcare:
+- Client18, Client19, Client20, Client21
+
+#### Real Estate/Services:
+- Client22, Client23, Client24
+- Client25, Client26, Client27
+
+#### Automotive/Logistics:
+- Client28, Client29
+
+#### QA/Food/Media:
+- Client30, Client31, Client32
+
+#### Special:
+- Client33 (in launch stage)
+
+### 🔴 Inactive projects (5):
+- Client34, Client35, Client36, Client37, Client38
+
+### 👥 Analytics team (8 people):
+- Various project load distribution
+- International clients (USA, Europe, Saudi Arabia)
+- Flexible working hours (11:00-18:00/19:00)
+
+## 🔧 API Configuration:
+- **API Key:** `[REMOVED FOR SECURITY]`
+- **Base URL:** `https://pasta.tldv.io/v1alpha1`
+- **Pagination:** 50 meetings per page
+- **Total meetings:** 251 meetings
+
+## 📋 Project statistics:
+- **Total meetings:** 277
+- **Downloaded transcripts:** 272
+- **No transcripts:** 4
+- **Download errors:** 1
+- **Active projects:** 29
+- **Inactive projects:** 5
+- **Project status files:** 31
+
+## 🎯 Usage workflow:
+
+### For downloading new meetings:
+```bash
+python tldv_incremental_downloader.py
+```
+
+### For meeting analysis:
+1. Find meeting in `meetings_index.csv`
+2. Load corresponding TXT file
+3. Conduct analysis via AI assistant
+4. Update project status in `project_status/` if needed
+
+### For meeting search:
+- Use `grep` on TXT files
+- Search by CSV index
+- Filter by dates/participants
+
+This approach ensures:
+- ✅ Contextual analysis
+- ✅ Flexibility in asking questions  
+- ✅ Quality insights
+- ✅ Avoiding false positives from automation
+- ✅ Effective project portfolio management

@@ -455,7 +455,7 @@ def save_analysis_to_file(analysis, template_name):
     if template_name == "prompt_internal":
         filename = "Short Version for Slack.md"
     elif template_name == "prompt_notion":
-        filename = "Notion расширенная Version.md"
+        filename = "Notion Extended Version.md"
     else:
         filename = f"{template_name}.md"
     
