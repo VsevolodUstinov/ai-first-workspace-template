@@ -29,6 +29,14 @@
 "Research the latest trends in [your industry] and create a market analysis document"
 ```
 
+### 📞 FireFlies Call Analysis
+```
+Analyze the latest proptech client meeting transcript and answer the following questions:
+- What specific agreements were reached regarding changes to the client's data processing workflow?
+- Who is responsible for their implementation?
+- Whether the client remained satisfied after the end of the call?
+```
+
 ## 🎬 Live Demo Flow
 
 ### 1. Workspace Overview (2 min)
@@ -46,7 +54,13 @@
 - Update project status cards
 - Generate actionable summaries
 
-### 4. Cross-Department Intelligence (3 min)
+### 4. Analyze client meeting transcript (3 min)
+- Process FireFlies call transcript with the proptech client
+- Identify responsibilities and action items with specific owners
+- Assess client satisfaction and relationship health
+- Create structured analysis for executive review
+
+### 5. Cross-Department Intelligence (3 min)
 - Show how information flows between departments
 - Demonstrate unified strategic messaging
 - Highlight collaborative workflows

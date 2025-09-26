@@ -1,0 +1,250 @@
+# proptech.com-elly: project meeting
+Date: 2025-09-01 13:00
+Duration: 16.950000762939453 min
+Participants: client@clientmail.com,client2@clientmail.com,elly.analyst@ellyanalytics.com,elly.manager@ellyanalytics.com,elly.manager2@ellyanalytics.com,fred@fireflies.ai
+ID: 01KBFH5J73NGBG849KK63K3
+
+---
+
+[00:00] Elly Manager: Hi.
+[00:01] Elly Manager: How are you?
+[00:03] Client: Hi. Yeah, nothing much, and how are you?
+[00:06] Elly Manager: Good.
+[00:10] Elly Analyst: Hi.
+[00:11] Elly Manager: Hi.
+[00:13] Elly Manager: We'll try not to take long today, because on our side there are practically no questions to check.
+[00:20] Elly Manager: But just in case, Alice, highlight if there are any updates on these questions, or something new that makes sense to run through by voice.
+[00:27] Client: Yes, one hundred percent there is, I'll highlight.
+[00:30] Elly Manager: Go ahead.
+[00:33] Client: So, will you start with your tasks or should I go to mine right away?
+[00:41] Elly Manager: Let's to the topic first, then meet again.
+[00:44] Elly Manager: Okay.
+[00:45] Client: So, let me probably drop a link here in the chat now so you don't search for long.
+[00:53] Client: This concerns what you asked me to make all types of combinations over five fields.
+[01:02] Client: That is by channel, by channel name, by source type and by form identifier.
+[01:11] Elly Manager: Will you open it?
+[01:13] Elly Manager: Open it.
+[01:14] Client: And there I got stuck.
+[01:16] Client: I realized that this is unreal to do overall.
+[01:20] Client: I'll explain now what, how and why.
+[01:23] Client: Look, go first to the combinations of 5 fields.
+[01:30] Client: So you understand, I output these combinations, it came out about 100 thousand rows of these combinations.
+[01:42] Client: And this will be unreal to track in the sense that we have a lot changing.
+[01:47] Client: What exactly is changing, what we discussed with development?
+[01:50] Client: A lot of source names are added, so binding to them is not an option at all.
+[01:56] Client: There each new ad on the site is a new source name.
+[02:00] Client: And accordingly, in general, to bind to them, basically, is not needed.
+[02:06] Client: But we kind of have no logic for them, except one case.
+[02:10] Client: As I saw, our SourceName is output according to this classifier system, but the guys are already working on it, development, and they should change it soon and make a normal classifier.
+[02:24] Client: Therefore it seems by source names there is no sense at all to introduce these combinations.
+[02:30] Client: Right.
+[02:31] Client: Here's another thing.
+[02:32] Client: We have social.
+[02:34] Client: details being added a lot.
+[02:37] Client: It's also impossible, well, to bind to them somehow.
+[02:42] Client: Because I asked Bob, Bob says about plus five per week.
+[02:47] Client: And to update every week, of course, it's unreal.
+[02:50] Elly Manager: And can't this be done?
+[02:52] Elly Manager: And what do you think, can this not be done in the format of auto-export from your DB as well?
+[02:56] Elly Manager: A new source appears and it is updated here.
+[02:59] Client: We have manual allocation, that is, I do not understand how and where to attribute these sources initially.
+[03:05] Client: I sit and sort it all out by hand.
+[03:07] Client: We don't have in the DB or somewhere a clear logic written that when a new source appears, it is automatically attributed there.
+[03:16] Client: With us it looks like this: a new source appears, I notice it by chance, I go to the guys and ask, what is this.
+[03:22] Client: We find out first with development, then with marketing, then we decide where to attribute it after all.
+[03:28] Client: And in general it's a very long process for every single small source.
+[03:31] Client: Right.
+[03:33] Client: Therefore, among options to maybe improve and make life easier for you, I propose the second sheet.
+[03:43] Client: That is, make combinations by three fields, namely Channel Type, Channel Name and Source Type.
+[03:48] Client: But in Channel Name not to bind strictly, to bind specifically there, for example, for those where they exist.
+[03:58] Client: Where there are asterisks, that means, well, it doesn't matter to us what Channel Name is there.
+[04:02] Client: Like affiliate, well, it's all affiliate, and affiliates are added every day, like one or two affiliates.
+[04:09] Client: Naturally, I will not add them every time.
+[04:13] Client: And for us, actually, it makes no difference.
+[04:15] Client: Which new affiliate was added there, it's an affiliate and that's it.
+[04:18] Client: And the same with these...
+[04:22] Client: SMMs, which for us are actually not SMMs.
+[04:26] Client: But these sites are added, a bunch of new different ones, I will not be able to track it.
+[04:30] Client: Scroll a little lower.
+[04:32] Elly Manager: Yes, it's a little different there.
+[04:35] Elly Manager: There, this, yes?
+[04:39] Client: No, lower, lower, lower.
+[04:40] Client: This is how SMM should be, which is Channel Type SMM.
+[04:47] Client: Well, here, Search, SBM.
+[04:48] Client: And this one?
+[04:49] Client: Yes.
+[04:50] Elly Manager: So we just load everything into one SMM, right?
+[04:53] Client: There are a huge number of them, both Search, new ones are added, like some kind of miracle new Search appeared, created.
+[05:01] Client: I, again, will not be able to add and track this.
+[05:03] Client: And there is just something incredible number of SMMs.
+[05:07] Client: Right.
+[05:08] Client: Therefore there, where there is a name, you can bind to the names.
+[05:13] Client: Where, accordingly, there are asterisks, then it doesn't matter to us which.
+[05:16] Client: The same with emails.
+[05:20] Elly Manager: And look, how okay will it be if where there is an asterisk, we will duplicate the Channel Tout name in Channel Name?
+[05:27] Elly Manager: And so that we have granularity preserved?
+[05:30] Client: I wrote which correspondences should be.
+[05:34] Client: That is, in the marketing report this should relate, for example, SMM to SEO, in plan-fact to SEO, and in payback SEO the site.
+[05:43] Client: I wrote specifically the correspondences.
+[05:46] Elly Manager: So you mean that it doesn't matter which of these we take?
+[05:50] Elly Manager: Or do you mean, so that I understand you completely, do you mean that still in the marketing report SMM should be, well, attributed to SEO, here to SEO, and here to SEO-trainer?
+[06:03] Client: Yes, actually that's why I created three separate columns, because in payback we have one breakdown, in plan-fact another breakdown, and in the other marketing reports a third breakdown.
+[06:14] Elly Manager: Just to understand, look, and here we have asterisk, what do they affect?
+[06:18] Elly Manager: What exactly is not essential for you here in terms of Channel Name?
+[06:21] Client: In terms of any Channel Name, it doesn't matter which it is.
+[06:25] Client: That is, if this is SMM, no matter what Channel Name, we attribute it to all.
+[06:30] Elly Manager: Ah, all right, okay, sorry, got it.
+[06:32] Elly Manager: In short, everything that falls there into SMM, basically.
+[06:36] Client: The only thing, for example, look, about email.
+[06:39] Client: Raise a little higher.
+[06:43] Client: We have separately email Platform X.
+[06:47] Client: It goes for us in marketing payback as a separate channel.
+[06:50] Client: That's why I wrote Platform X.
+[06:52] Client: And the asterisks mean like everything else except Platform X.
+[06:56] Client: If anything, I can mark it somehow differently.
+[06:59] Client: I just don't know how to make this better for you.
+[07:04] Elly Manager: Let me just jot down comments that we have for now, and Sarah will also do it on top.
+[07:08] Elly Manager: Okay?
+[07:10] Client: It's just that the way you wanted to bind to one table and live calmly without adding anything else still doesn't work.
+[07:20] Elly Manager: And.
+[07:27] Client: The same with affiliate, that is, we have singled out separately.
+[07:36] Client: All these partner sites are separate, and the asterisks mean everything except those that exist.
+[07:43] Elly Manager: Uh-huh.
+[07:55] Elly Manager: Uh-huh.
+[08:02] Client: Here, in red I highlighted those screw-ups that we now have in the database, but which the guys are already fixing.
+[08:09] Client: That is, this is Property Services, what we discussed with you, that it will be moved for us automatically, and accordingly there will be a normal channel for degeneration then.
+[08:18] Client: Therefore I don't know now, like, whether it's worth somehow specifying something for it separately or not.
+[08:23] Elly Manager: And we, the base, look, Property Services, Sarah has already distributed, at least here, in marketing payback, we definitely were sending to degeneration.
+[08:32] Client: Management of marketing, it still goes to affiliate, and Mike and I just discussed that we need to correct this normally on our side.
+[08:41] Client: We just have Property Services with channel type Lead Gen.
+[08:46] Client: Well, properly.
+[08:47] Client: And there is the old Property Services.
+[08:50] Elly Manager: It...
+[08:50] Elly Manager: Ah, all right, got it.
+[08:51] Elly Manager: These are not the rows that Sarah corrected, right, last time?
+[08:54] Client: No, no.
+[08:55] Elly Manager: Right.
+[08:56] Client: Then we accidentally created webinars and exhibitions, a channel that should be just webinars.
+[09:03] Client: The guys will fix this now, again.
+[09:05] Client: But I don't know when.
+[09:07] Client: Right.
+[09:08] Client: Then this classification system or whatever it's called, it will also be corrected accordingly, they will make it normal in the classifier.
+[09:17] Client: I don't know whether to take these red ones into account or not.
+[09:21] Client: And the unknown should also be fixed, it seems, but this has been hanging for a very long time.
+[09:28] Client: But unknown as if, so relatively unknown source.
+[09:31] Elly Manager: Look, then let's at this stage, Sarah, I'll check these particular guys, okay, the red ones.
+[09:36] Elly Manager: Either we will reassign them right away, or we'll just wait for your refinement, and if it will be more or less in one release there, well in adjacent releases, then after these releases we will collect then.
+[09:48] Client: Well yes, as I understand, Sarah is now accounting for this classification anyway herself, but if you want to make these bindings through the table, then as if you either also leave it through it; there is just a problem in the source name that it is added.
+[10:05] Elly Manager: Okay.
+[10:06] Client: Right.
+[10:07] Client: And it turns out that everything is accounted for by these three fields.
+[10:11] Client: Except, in marketing payback our satellites are divided into two types.
+[10:17] Client: There are satellites Portal 1 and satellites Portal 2.
+[10:20] Client: Right.
+[10:21] Client: They cannot be separated in any other way except by SD.
+[10:25] Client: So I output a separate column, SD for satellites only for payback.
+[10:31] Elly Manager: Yeah, here.
+[10:32] Client: Yes.
+[10:33] Client: And at the very bottom you can scroll.
+[10:35] Client: There they are the last.
+[10:37] Client: They can only be divided by SD, in no other way.
+[10:42] Client: Maybe for payback make a separate one somehow, additional.
+[10:46] Client: But again these are all crutches.
+[10:49] Client: How to do it better and more adequate, I don't see options here.
+[10:53] Elly Manager: Let's do this, we will at least take this stage now, for sure, okay.
+[10:57] Elly Manager: And if we have any updates or changes further, we will correct.
+[11:01] Elly Manager: It seems that this already looks better.
+[11:04] Client: Well, okay, yes.
+[11:05] Client: That is, I did it as far as possible.
+[11:07] Client: Come back if you think of something differently and somehow it can be added or done otherwise, I'm always for it.
+[11:15] Elly Manager: Alice, you just know a final question.
+[11:17] Elly Manager: Look, we now have this split that we take from the second sheet, and for the base, if something new will be added, what format do we agree on then?
+[11:25] Elly Manager: so will you be able to set up some format of auto-export here for the new ones.
+[11:30] Elly Manager: Or for now we don't make any changes.
+[11:34] Elly Manager: Or some change happens, you add it and highlight to us.
+[11:37] Client: If you bind to this table and kind of set up automatically that you take everything from it, then it seems I don't need to highlight to you.
+[11:47] Client: I saw that something new was added for us, I enter it into the table and that's it.
+[11:52] Client: And it is pulled automatically.
+[11:55] Client: The only thing is it will not be in the format of auto-export.
+[11:58] Client: Well, we can agree to recheck, I don't know, once in a couple of months, maybe.
+[12:04] Client: Right.
+[12:05] Client: But so that every day it would be automatically re-pulled, no.
+[12:08] Client: It will be in the same format that I accidentally find that something has popped up for us, something has appeared.
+[12:13] Client: Right.
+[12:14] Client: Then I figure out with everyone who did it and, actually, add it in some form.
+[12:19] Elly Manager: Got it.
+[12:20] Elly Manager: Look, then we'll take this into work.
+[12:22] Elly Manager: Okay?
+[12:22] Elly Manager: Today Sarah is just a bit sick, but she will come out either tomorrow or on Monday.
+[12:26] Elly Manager: On Monday we will definitely check this.
+[12:28] Elly Manager: And if I have some question left on top, then we'll return to the chat, okay.
+[12:32] Elly Manager: And basically we then take this sheet into setup.
+[12:35] Elly Manager: Okay?
+[12:35] Elly Manager: Okay.
+[12:37] Elly Manager: Deal.
+[12:38] Elly Manager: Thanks.
+[12:39] Elly Manager: Thanks that it worked out earlier.
+[12:41] Elly Manager: So, and look...
+[12:56] Elly Manager: Aha.
+[12:57] Elly Manager: And tell me, please, is there any point to talk over with the 100 thousand hair?
+[13:00] Elly Manager: We had a remaining question on events about expenses.
+[13:03] Elly Manager: Maybe your hands reached them.
+[13:05] Client: Look, for events we are now at the stage of normal renaming of events, as we agreed, so that everything is distributed well.
+[13:13] Elly Manager: Right.
+[13:14] Client: There we also want an additional breakdown.
+[13:19] Elly Manager: Okay.
+[13:21] Elly Manager: Please tell me, you want an additional breakdown, do you mean in the sheet, in the format as we output it in grouping, or do you mean only purely by name?
+[13:31] Client: Look, I haven't put it in here yet, but as found out from the person who handles events, that our Company X events are desirable to further divide into three groups — offline, online and roads.
+[13:51] Client: Will it be realistic to do it so that there will be one big group of Company X events and subgroups in it?
+[14:00] Elly Manager: Look, if it seems that if we will have something to tie to, some rules here, then in general there should be no problems.
+[14:07] Elly Manager: But let's check.
+[14:08] Elly Manager: Now if it's not difficult, just throw us these three groups, if they already exist in the database, if there are signs by which they can be pulled out.
+[14:14] Client: Look, for now we don't have it, for now before renaming it's unreal to do.
+[14:19] Client: That is, we need to wait until the guys rename it all, and then it will also be possible to bind by name.
+[14:26] Client: They will already be adequate.
+[14:28] Client: Right.
+[14:28] Client: Well, and so, accordingly, it will be pulled by name.
+[14:31] Client: If it says online, then online.
+[14:34] Client: If offline—offline.
+[14:35] Client: If road, then road.
+[14:38] Elly Manager: Right.
+[14:41] Client: But this is probably then, well, makes sense to add only when they do it.
+[14:46] Client: Right now it's a mess there.
+[14:51] Elly Manager: Got it, okay.
+[14:52] Elly Manager: Look, I'll take this point just in case, Sarah and I will also check this on Monday, okay?
+[14:57] Elly Manager: Okay.
+[15:02] Elly Manager: Well, this, right?
+[15:04] Elly Manager: And I'll come back again.
+[15:08] Client: Okay.
+[15:09] Elly Manager: If we can, we will take it when it is renamed.
+[15:12] Client: Yes, expenses are still very much in process for us.
+[15:18] Client: They will be, most likely, not soon.
+[15:21] Elly Manager: As you drive us, that's how we will drag it out.
+[15:24] Elly Manager: Moreover, actually, if you will add exactly...
+[15:29] Elly Manager: If you will add exactly, it turns out, into this little doc we agreed on, then it seems that...
+[15:39] Elly Manager: We will not even need to set this up properly.
+[15:42] Elly Manager: We will just need to double-check two points to correctly, well, reconcile.
+[15:47] Elly Manager: Right.
+[15:47] Elly Manager: And second, that our naming, the naming of events, will one-to-one correspond with the naming of the expense.
+[15:54] Elly Manager: Well, that is, that there will be no discrepancy.
+[15:55] Elly Manager: And in general it will already be convenient.
+[15:57] Client: Well, here we, accordingly, yes, will also correct the names in accordance with the new list.
+[16:03] Elly Manager: Right.
+[16:04] Client: This will already be after several events that are now taking time.
+[16:10] Elly Manager: Okay.
+[16:10] Elly Manager: That is, we will go to see how it lights up, and we will take it.
+[16:13] Elly Manager: For now, when we check these two points, well, and we take new binding rules in general overall.
+[16:18] Elly Manager: And here just if Sarah has any questions after the video, then we will bring.
+[16:21] Elly Manager: Well, yes.
+[16:23] Client: If something is needed, yes, come.
+[16:26] Elly Manager: Okay, okay.
+[16:27] Elly Manager: Maybe there is something else?
+[16:28] Elly Manager: I want to talk to you.
+[16:31] Elly Manager: Super, thanks.
+[16:33] Elly Manager: So then I propose I will not delay you any longer.
+[16:36] Elly Manager: Okay, maybe I will pass everything on Monday for sure, if there are any questions, we will return, and if not, we will just take the work.
+[16:42] Elly Manager: Yes, okay.
+[16:44] Elly Manager: Oh, super, guys, glad to see you.
+[16:46] Client: Alright, have a good day.
+[16:47] Elly Manager: Alright.
+[16:48] Elly Manager: Bye-bye, okay.
