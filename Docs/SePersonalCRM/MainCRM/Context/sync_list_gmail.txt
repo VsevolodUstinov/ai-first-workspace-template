@@ -1,0 +1,215 @@
+# Gmail Sync List
+# Format: Name -> EmailAddress #TAG [DONE:timestamp]
+# 
+# Tags:
+#   #DO_SYNC - actively sync emails (business contacts) - copied from Telegram #DO_SYNC
+#   #DO_SYNC - do NOT sync (personal/not relevant) - all others from Telegram
+#   #NO_EMAIL - email address not yet found
+#   #BOUNCED - email address bounced/invalid (discovered during sync)
+#
+# INITIALIZED: 2025-10-21 - Based on Telegram sync list
+# Strategy: Only sync emails with tracked contacts (no spam, no unknown senders)
+
+# Contacts with Telegram #DO_SYNC → also Gmail #DO_SYNC (need to find emails)
+Person-1 #DO_SYNC #NO_EMAIL
+Person-2 -> contact2@company-x.com #DO_SYNC [DONE:2025-10-21T21:16:44.413648]
+Person-3 #DO_SYNC #NO_EMAIL
+Person-4 -> contact4@company-y.com #DO_SYNC [DONE:2025-10-21T21:16:45.002926]
+Person-5 -> contact5@company-z.com #DO_SYNC [DONE:2025-10-21T21:16:46.509264]
+Person-6 #DO_SYNC #NO_EMAIL
+Person-7 -> contact7@company-a.com #DO_SYNC [DONE:2025-10-21T21:34:54.314038]
+Person-8 -> contact8@company-b.com #DO_SYNC [DONE:2025-10-21T21:16:48.079302]
+Person-9 (Investor Org-A) -> contact9@fund-a.vc #DO_SYNC [DONE:2025-10-21T21:35:10.075604]
+Person-10 -> contact10@fund-b.com, contact10alt@company-c.com #DO_SYNC [DONE:2025-11-05T00:07:35.356411]
+Person-11 #DO_SYNC #NO_EMAIL
+Person-12 Company-D Location-1 -> contact12@company-d.ai #DO_SYNC [DONE:2025-10-21T21:51:24.658149]
+Person-13 Fund-C #DO_SYNC #NO_EMAIL
+Person-14 -> contact14@company-e.com #DO_SYNC [DONE:2025-10-21T21:51:44.485941]
+Person-15 Fund-D -> contact15@fund-d.vc #DO_SYNC [DONE:2025-10-21T21:51:50.951389]
+Person-16 -> contact16@email.com #DO_SYNC [DONE:2025-10-21T21:48:04.000822]
+Person-17 -> contact17@domain.com #DO_SYNC [DONE:2025-10-21T21:50:57.348533]
+Person-18 Fund-E -> contact18@fund-e.com #DO_SYNC [DONE:2025-10-21T21:51:38.457730]
+Person-19 -> contact19@email.com #DO_SYNC [DONE:2025-10-21T21:51:04.263644]
+Person-20 #DO_SYNC #NO_EMAIL
+Person-21 #DO_SYNC #NO_EMAIL
+Person-22 #DO_SYNC #NO_EMAIL
+Person-23 #DO_SYNC #NO_EMAIL
+Person-24 (Org-B) #DO_SYNC #NO_EMAIL
+Person-25 #DO_SYNC #NO_EMAIL
+Person-26 Fund-F -> contact26@email.com #DO_SYNC [DONE:2025-10-21T21:51:17.871181]
+Person-27 Org-C -> contact27@org-c.vc #DO_SYNC [DONE:2025-10-21T21:51:31.778370]
+Person-28 Fund-G #DO_SYNC #NO_EMAIL
+Person-29 Org-D #DO_SYNC #NO_EMAIL
+Person-30 -> contact30@company-f.io #DO_SYNC [DONE:2025-10-21T21:16:58.143814]
+Person-31 -> contact31@fund-h.co #DO_SYNC [DONE:2025-10-21T21:51:11.483729]
+Person-32 (Company-G) #DO_SYNC #NO_EMAIL
+Person-33 #DO_SYNC #NO_EMAIL
+Person-34 -> contact34@company-h.ru #DO_SYNC [DONE:2025-10-21T21:56:05.526977]
+Person-35 Org-E -> contact35@org-e.com #DO_SYNC [DONE:2025-10-21T21:56:06.727437]
+Person-36 -> contact36@company-i.sg #DO_SYNC [DONE:2025-10-21T21:56:17.633561]
+Person-37 #DO_SYNC #NO_EMAIL
+Person-38 #DO_SYNC #NO_EMAIL
+Person-39 Fund-I #DO_SYNC #NO_EMAIL
+Person-40 #DO_SYNC #NO_EMAIL
+Person-41 #DO_SYNC #NO_EMAIL
+Person-42 #DO_SYNC #NO_EMAIL
+Person-43 #DO_SYNC #NO_EMAIL
+Person-44 -> contact44@email.com #DO_SYNC [DONE:2025-10-21T21:56:20.910731]
+Person-45 -> contact45@company-j.com #DO_SYNC [DONE:2025-10-21T21:56:25.566096]
+Person-46 Fund-J #DO_SYNC #NO_EMAIL
+Person-47 #DO_SYNC #NO_EMAIL
+Person-48 -> contact48@org-f.com #DO_SYNC [DONE:2025-10-21T21:56:25.804190]
+Person-49 Org-G -> contact49@org-g.com #DO_SYNC [DONE:2025-10-21T21:56:27.523409]
+Person-50 #DO_SYNC #NO_EMAIL
+Person-51 Fund-K (mentor of Person-X) -> contact51@fund-k.com #DO_SYNC [DONE:2025-10-21T21:56:27.737073]
+Person-52 #DO_SYNC #NO_EMAIL
+Person-53 #DO_SYNC #NO_EMAIL
+Person-54 #DO_SYNC #NO_EMAIL
+Person-55 -> contact55@fund-l.vc #DO_SYNC [DONE:2025-10-21T21:56:29.126277]
+Person-56 -> contact56@company-k.com #DO_SYNC [DONE:2025-10-21T21:56:29.347733]
+Org-H #DO_SYNC #NO_EMAIL
+Person-57 #DO_SYNC #NO_EMAIL
+Person-58 #DO_SYNC #NO_EMAIL
+Person-59 #DO_SYNC #NO_EMAIL
+Person-60 -> contact60@email.com #DO_SYNC [DONE:2025-10-21T21:56:38.223375]
+Person-61 #DO_SYNC #NO_EMAIL
+Person-62 Org-I -> contact62@org-i.vc #DO_SYNC [DONE:2025-10-21T21:56:38.881204]
+Person-63 #DO_SYNC #NO_EMAIL
+Person-64 -> contact64@org-j.com #DO_SYNC [DONE:2025-10-21T21:56:40.579305]
+Person-65 #DO_SYNC #NO_EMAIL
+Person-66 Org-K -> contact66@org-k.com #DO_SYNC [DONE:2025-10-21T21:56:41.283798]
+Person-67 Company-L #DO_SYNC #NO_EMAIL
+Person-68 #DO_SYNC #NO_EMAIL
+Person-69 Company-M #DO_SYNC #NO_EMAIL
+Company-N Company-O Company-P Company-Q #DO_SYNC #NO_EMAIL
+Person-70 (ex Fund-M) #DO_SYNC #NO_EMAIL
+Person-71 Org-L -> contact71@email.com #DO_SYNC [DONE:2025-10-21T21:56:43.118613]
+Person-72 #DO_SYNC #NO_EMAIL
+Person-73 #DO_SYNC #NO_EMAIL
+Person-74 #DO_SYNC #NO_EMAIL
+Person-75 Org-M -> contact75@email.com #DO_SYNC [DONE:2025-10-31T12:19:47.954126]
+Person-76 (Company-R) #DO_SYNC #NO_EMAIL
+Person-77 -> contact77@company-s.me #DO_SYNC [DONE:2025-10-21T21:56:49.571465]
+Person-78 #DO_SYNC #NO_EMAIL
+Person-79 Org-N #DO_SYNC #NO_EMAIL
+Person-80 #DO_SYNC #NO_EMAIL
+Person-81 -> contact81@company-t.ai #DO_SYNC [DONE:2025-10-21T21:56:49.800772]
+Person-82 #DO_SYNC #NO_EMAIL
+Person-83 #DO_SYNC #NO_EMAIL
+Person-84 Company-U #DO_SYNC #NO_EMAIL
+Person-85 #DO_SYNC #NO_EMAIL
+Person-86 -> contact86@email.com #DO_SYNC [DONE:2025-10-21T21:56:52.180589]
+Org-O #DO_SYNC #NO_EMAIL
+Person-87 -> contact87@email.com #DO_SYNC
+Person-88 (Org-P, Fund-N) -> contact88@org-p.am #DO_SYNC [DONE:2025-10-21T21:56:52.684840]
+Person-89 #DO_SYNC #NO_EMAIL
+Person-90 Org-Q -> contact90@org-q.com #DO_SYNC [DONE:2025-10-21T21:56:52.896133]
+Person-91 #DO_SYNC #NO_EMAIL
+Person-92 -> contact92@email.com #DO_SYNC [DONE:2025-10-21T21:56:53.627458]
+Person-93 -> contact93@company-v.com #DO_SYNC [DONE:2025-10-21T21:56:56.852664]
+Person-94 #DO_SYNC #NO_EMAIL
+Person-95 -> contact95@company-w.net #DO_SYNC [DONE:2025-10-21T21:57:11.428586]
+Person-96 #DO_SYNC #NO_EMAIL
+Person-97 #DO_SYNC #NO_EMAIL
+Person-98 from Person-10 -> contact10@fund-b.com #DO_SYNC [DONE:2025-10-21T21:57:17.348121]
+
+# Contacts with Telegram #DO_SYNC or other tags → Gmail #DO_SYNC
+Person-99 #DO_SYNC
+Person-100 #DO_SYNC
+Person-101 #DO_SYNC
+Person-102 #DO_SYNC
+Person-103 #DO_SYNC
+Person-104 #DO_SYNC
+Person-105 -> contact105@company-x.com #DO_SYNC [DONE:2025-10-21T21:57:18.887974]
+Person-106 -> contact106@email.com, contact106alt@company-y.co #DO_SYNC [DONE:2025-11-04T11:49:50.487740]
+Person-107 #DO_SYNC
+Person-108 -> contact108@company-z.com #DO_SYNC [DONE:2025-10-21T21:57:25.452325]
+Person-109 #DO_SYNC
+Person-110 -> contact110@company-a.app #DO_SYNC [DONE:2025-10-21T21:57:26.628664]
+Person-111 #DO_SYNC
+
+# Contacts not on Telegram or not connected → #DO_SYNC (low priority for Gmail)
+Person-112 -> contact112@org-r.partners #DO_SYNC [DONE:2025-10-21T21:57:26.853648]
+Person-113 Org-S #DO_SYNC
+Person-114 #DO_SYNC
+Person-115 #DO_SYNC
+Person-116 #DO_SYNC
+Person-117 #DO_SYNC
+Person-118 #DO_SYNC
+Person-119 -> contact119@fund-o.com #DO_SYNC [DONE:2025-10-21T21:57:29.067090]
+Person-120 #DO_SYNC
+Person-121 Org-T #DO_SYNC
+Person-122 #DO_SYNC
+Person-123 #DO_SYNC
+Person-124 #DO_SYNC
+Person-125 #DO_SYNC
+Person-126 -> contact126@org-u.com #DO_SYNC [DONE:2025-10-21T21:52:07.422480]
+Person-127 #DO_SYNC
+Person-128 #DO_SYNC
+Person-129 (Org-V) -> contact129@org-v.com #DO_SYNC [DONE:2025-10-21T21:57:33.560624]
+Person-130 -> contact130@email.com #DO_SYNC [DONE:2025-10-27T22:25:16.680037]
+Person-131 #DO_SYNC
+Person-132 (scout, Location-2) -> contact132@company-b.com #DO_SYNC [DONE:2025-10-21T21:57:34.245452]
+Person-133 Company-C -> contact133@company-c.com #DO_SYNC [DONE:2025-10-21T21:57:35.433196]
+Person-134 (Org-W, Company-D board) #DO_SYNC
+Person-135 #DO_SYNC
+Person-136 (investor at Company-D, CEO Company-E) #DO_SYNC
+Person-137 #DO_SYNC
+Person-138 LPs #DO_SYNC
+Contact-C Fund-X -> contactc@fund-x.com #DO_SYNC [DONE:2025-10-21T21:57:35.719601]
+Person-139 (Company-D) -> contact139@email.com #DO_SYNC [DONE:2025-10-21T21:57:37.765570]
+Person-140 -> contact140@fund-y.com #DO_SYNC [DONE:2025-10-21T21:57:37.980887]
+Person-141 #DO_SYNC
+Person-142 #DO_SYNC
+Org-Y #DO_SYNC
+Org-Z #DO_SYNC
+Archive #DO_SYNC
+Org-AA #DO_SYNC
+Org-AB -> contact-ab@org-ab.com #DO_SYNC [DONE:2025-10-23T16:30:21.481550]
+Fund-P Person-143 Person-144 #DO_SYNC
+Org-AC #DO_SYNC
+Accelerator-A #DO_SYNC
+Org-AD #DO_SYNC
+Fund-Q #DO_SYNC
+Org-AE #DO_SYNC
+Company-F #DO_SYNC
+Person-145 #DO_SYNC
+Fund-R #DO_SYNC
+Community-A #DO_SYNC
+Accelerator-B #DO_SYNC
+Org-AF #DO_SYNC
+Company-G #DO_SYNC
+Org-AG #DO_SYNC
+Person-146 -> contact146@company-h.com #DO_SYNC [DONE:2025-10-21T21:52:25.318109]
+Fund-S #DO_SYNC
+Person-147 #DO_SYNC
+
+Person-10 -> contact10@fund-b.com, contact10alt@company-c.com #DO_SYNC [DONE:2025-11-05T00:07:35.356411]
+Person-87 -> contact87@email.com #DO_SYNC [DONE:2025-10-21T20:57:37.169907]
+Person-148 -> contact148@company-i.com #DO_SYNC [DONE:2025-10-21T17:16:38.617670]
+Person-149 -> contact149@company-j.ai #DO_SYNC [DONE:2025-10-21T17:26:11.725906]
+Person-150 -> contact150@fund-t.com #DO_SYNC [DONE:2025-10-21T22:45:57.542774]
+Person-151 -> contact151@fund-u.vc #DO_SYNC [DONE:2025-10-31T11:56:06.130609]
+Person-152 -> contact152@fund-u.vc #DO_SYNC [DONE:2025-10-21T23:02:21.145041]
+Person-153 -> contact153@company-k.com #DO_SYNC [DONE:2025-10-22T22:21:39.687958]
+Person-154 -> contact154@company-l.com #DO_SYNC [DONE:2025-10-22T22:24:03.374973]
+Person-155 -> contact155@org-ab.com #DO_SYNC [DONE:2025-10-23T16:31:47.281457]
+Person-156 -> contact156@fund-v.vc #DO_SYNC [DONE:2025-10-23T16:48:19.292345]
+Person-157 -> contact157@email.com #DO_SYNC [DONE:2025-10-23T18:27:51.448988]
+Contact-G -> contactg@company-m.io #DO_SYNC [DONE:2025-10-27T22:39:29.560249]
+Person-158 Org-AB -> contact-ab@org-ab.com #DO_SYNC [DONE:2025-10-30T18:01:23.315299]
+Person-159 -> notifications@calendar-service.com #DO_SYNC [DONE:2025-10-28T13:57:29.184717]
+Person-160 Org-AB -> contact-ab@org-ab.com #DO_SYNC [DONE:2025-11-09T19:04:02.570450]
+Person-161 -> contact161@company-n.media #DO_SYNC [DONE:2025-11-05T21:18:08.226509]
+Contact-D -> contactd@email.com #DO_SYNC [DONE:2025-11-05T00:10:44.239205]
+Person-162 -> contact162@fund-w.com #DO_SYNC [DONE:2025-11-05T21:13:04.194680]
+Person-163 -> contact163@fund-w.com #DO_SYNC
+Person-164 -> contact164@email.com #DO_SYNC [DONE:2025-11-05T00:39:02.691920]
+Person-165 -> contact165@fund-x.ai #DO_SYNC [DONE:2025-11-05T21:53:32.182003]
+Contact-B -> contactb@org-ah.com #DO_SYNC [DONE:2025-11-10T17:12:52.078351]
+Person-166 -> contact166@company-o.ai #DO_SYNC [DONE:2025-11-11T15:22:15.228729]
+Person-167 -> contact167@company-o.ai #DO_SYNC [DONE:2025-11-11T15:22:18.884202]
+# Note: Email addresses will be discovered using gmail_find_email.py
+# Once found, format will be: Name -> email@example.com #TAG [DONE:timestamp]
+
+

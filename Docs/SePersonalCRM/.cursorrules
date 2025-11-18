@@ -1,0 +1,1345 @@
+# SePersonalCRM - Personal CRM & Fundraising Context
+
+**Purpose**: Personal CRM for fundraising activities and relationship management.
+
+**Owners**: [TEAM_NAME]
+
+---
+
+## 📚 Team Quick Reference
+
+**For ALL team members using Cursor AI**: See **[TEAM_QUICK_REFERENCE.md](./TEAM_QUICK_REFERENCE.md)** for:
+- How to request contact research (web/LinkedIn)
+- Common commands in plain language
+- Automatic update features
+- Git operations
+- File structure and workflows
+
+**Why this guide exists**: Cursor memories are per-account (not shared between teammates). This guide ensures everyone knows how to use the CRM system regardless of their individual Cursor configuration.
+
+**Quick commands**:
+- "do web research for [Person Name]" → People research via Perplexity API
+- "do company research for [Company Name]" → Company research via Perplexity API
+- "research: [any topic]" → General research via Perplexity API
+- "do linkedin research for [Person Name]" → LinkedIn profile scraping
+- "update all" → Git status check
+- "commit" → Git add + commit + push
+
+---
+
+## 🎯 CRITICAL: Strategy Context Required
+
+**Almost ALL fundraising communication requires company knowledge.**
+
+If Strategy context is not loaded, load it first:
+
+```
+Read: ../Strategy/.cursorrules
+```
+
+**Why**: Investor conversations, pitch materials, company blurb, product positioning - all require up-to-date company context from Strategy folder. That's where we maintain and update company information.
+
+---
+
+## Active Working Folder
+
+**Primary folder**: `MainCRM/` - All active fundraising work happens here
+
+**DO NOT USE**: `[Legacy_Folder_A]/` or `[Legacy_Folder_B]/` - development/archive data only
+
+---
+
+## Repository Updates
+
+**"Update CRM"** = `git pull` this repository (not email/Telegram sync).
+
+---
+
+## Inbox Processing & Task Management
+
+**For ALL inbox and task processing work**, read the complete guide:
+
+```
+MainCRM/Inbox/inbox_processing_rules.md
+```
+
+**When to read:**
+- Processing AI inbox, email, Telegram, LinkedIn
+- Working with processing_tasks.md
+- Creating work tasks
+- Understanding two-stage workflow
+- Any inbox-related questions
+
+**Key concept:** Two-stage system (collect ALL inboxes first, then process with full context)
+
+---
+
+## AI Assistant Planning & Analysis Guidelines
+
+**Time Estimations:**
+
+- **ALWAYS specify** whether time estimates are for:
+  - **Human execution**: Time required for a person to complete the task manually
+  - **AI agent execution**: Time required for AI to complete the task (usually much faster)
+- Format: "X hours (human)" or "X minutes (AI agent)" or "X hours human / Y minutes AI"
+- Example: "Phase 1: Analysis (30 mins AI / 2 hours human)"
+
+**Folder & File Content Verification:**
+
+- **ALWAYS inspect folder contents** before making assumptions based on folder names
+- **Verify entity type**: Even if a folder is named after a company, check if it actually contains company information or personal contact information
+- **Check Person+Company folders**: For folders with both person and company names, inspect the content to determine the primary entity (person profile vs. company profile)
+- **Don't rely on naming alone**: Folder names may be inconsistent with actual content
+
+**Company Classification (SePersonalCRM):**
+
+- When documenting company affiliations in person profiles, use prefixes to indicate company type:
+  - **"Fund:"** - For investment vehicles (venture capital funds, private equity, family offices, angel groups, investment firms)
+  - **"Firm:"** - For for-profit operating companies (startups, businesses where people are founders, CEOs, or employees)
+- Examples:
+  - "Fund: [VC_FUND_A]" (VC fund)
+  - "Fund: [FAMILY_OFFICE_B]" (family office)
+  - "Firm: [STARTUP_C]" (startup/operating company)
+  - "Firm: [COMPANY_D]" (company where person is CEO/founder)
+- Use this classification when:
+  - Creating/updating person profiles with company affiliations
+  - Moving companies to Companies/ folder
+  - Documenting where people work or invest
+
+---
+
+## Communication Context
+
+**Primary Fundraising Team Chat**: Telegram group "[TEAM_CHAT_NAME]"
+
+- **Members**: [OWNER_NAME] [owner], [ASSISTANT_A] [assistant], [ADMIN_NAME] [admin], [TEAM_MEMBER_B], [TEAM_MEMBER_C], [TEAM_MEMBER_D], [TEAM_MEMBER_E], [TEAM_MEMBER_F]
+- **Default**: When "chat" mentioned → refers to this Telegram group
+- **Default**: When "[OWNER_NAME] wrote" → means in this Telegram group
+
+---
+
+## Key Files & Locations
+
+**Company Information**:
+
+- **Blurb** (current): `../Strategy/Pitch-Materials/2025 - seed blurb.md` [CANONICAL]
+  - Blurb lives in Strategy folder with all pitch materials
+
+  - Update blurb there, not in CRM folder
+
+**Contact Management**:
+
+- **Active Contacts**: `MainCRM/Context/Contacts_Actual.md` [70KB] [SINGLE SOURCE OF TRUTH for current pipeline]
+- **Future Contacts**: `MainCRM/Context/Contacts_Later.md` [For contacts to revisit when milestones are met]
+- **Contact Profiles**: `MainCRM/Contacts/[Name]/` folders
+
+---
+
+## Folder Structure & File Organization
+
+**Main working folder**: `MainCRM/`
+
+### Directory Structure:
+
+- `/Contacts/` - Contact folders with profiles, emails, telegram messages, meeting transcripts
+- `/Companies/` - Company profiles (VC funds, potential investors, strategic partners)
+
+- `/Scripts/` - Automation scripts for data processing
+- `/Context/` - Key reference files for fundraising work
+- `/Specs/` - Technical documentation for scripts (Telegram system docs, etc.)
+
+### Companies Folder Purpose:
+
+**`MainCRM/Companies/`** - Company/organization profiles for quick context lookup
+
+**Purpose**: Find all relevant contacts from a company (VC fund, investor firm, strategic partner, etc.)
+
+**Structure**:
+
+- Each company has its own folder: `Companies/[Company Name]/`
+- Main profile file: `[Company Name].md`
+
+**Profile Contents** (ULTRA MINIMAL):
+
+- **Header**: Company name, type, website, focus (one line each)
+- **Overview** (OPTIONAL): ONE paragraph max about the company itself (investment thesis, key facts, market position)
+  - About the COMPANY, NOT about people
+  - Max one paragraph
+- **Contacts section**: ONLY list of people
+  - Format per contact: `**Name** - Role, brief context` (one line per person)
+  - Example: `**Jennifer Richard** - Principal, passed Oct 2025 "space too crowded"`
+  - NO emails, NO phone numbers, NO status details, NO links to profiles
+  - All details live in individual contact profiles
+- **Last Updated** date
+
+**NEVER include in company profiles**:
+- ❌ Communication history (meetings, emails, calls)
+- ❌ Relationship timeline or history
+- ❌ Project details or task lists
+- ❌ Detailed interaction notes
+- ❌ ANY information about specific conversations
+
+**Why ultra minimal**: Company profiles exist ONLY to see who we know at a company and basic company context. All contact details and communication history live in individual contact profiles.
+
+### Scripts & Documentation Approach:
+
+- **Scripts location**: `MainCRM/Scripts/` (current), `MainCRM/Scripts/Old/` (legacy)
+- **Usage instructions**: Written directly in this `.cursorrules` - should be sufficient to run scripts without reading detailed docs
+- **Detailed documentation**: Only in `MainCRM/Specs/` for understanding internals or modifying scripts
+- **Documentation principles**: Same as Strategy folder - avoid duplication, write concisely, high information density. If it's not essential, don't write it.
+
+### Critical Files in MainCRM/:
+
+**`Context/Contacts_Actual.md`** [70KB] [BACKLOG for active contacts]
+
+- Relationship status and context
+- What was discussed/agreed with each contact
+- Commitments and follow-ups (backlog - reference for creating work tasks)
+- ONLY for contacts we're actively working with NOW
+
+**NEW:** Active work items pulled from this backlog go into `Tasks/work_tasks.md` [14KB]
+
+- **CRITICAL**: Only add items that were explicitly discussed with the contact OR explicitly requested by user. DO NOT invent preparation tasks, research tasks, or "obvious next steps" unless specifically asked.
+
+**`Context/Contacts_Later.md`** [For future relationship opportunities]
+
+- Contacts where timing isn't right NOW, but valuable to return to later
+- Each entry has "Return When" condition (milestone/trigger)
+- NOT part of active pipeline - no immediate follow-up required
+- Examples: "Return when ARR > $XM", "Return when Series A", "Return when entering [Market]"
+- Same format as Contacts_Actual.md [70KB] but focused on future timing
+
+**`CRM-Tasks.md`** (repo level)
+
+- General CRM/fundraising project tasks
+- NOT for contact-specific action items
+
+---
+
+## Contact Profile Rules
+
+### ⚠️ CRITICAL: Task Management Rule
+
+**ABSOLUTE RULE: DO NOT INVENT TASKS**
+
+Only add tasks that are:
+
+1. **Explicitly discussed with the contact** (they said they'll do X, or asked us to do Y)
+2. **Explicitly requested by user** in their prompt
+
+**NEVER add these**:
+
+- ❌ Preparation tasks ("research their background", "prepare deck", "verify LinkedIn")
+- ❌ "Obvious next steps" ("follow up after meeting", "send thank you")
+- ❌ Research tasks unless specifically requested
+- ❌ "When returning" tasks in Contacts_Later.md
+- ❌ Any task the user didn't mention
+
+**Examples**:
+
+- ✅ User says "meeting on Oct 30" → Add only: `[ ] Meeting on Oct 30`
+- ❌ DO NOT add: "Prepare for meeting", "Research company", "Follow up after"
+
+**This applies to**: Contacts_Actual.md [70KB], Contacts_Later.md, and all contact profiles.
+
+**Research Failure Rule**: When research fails (web search, LinkedIn, etc.), ask user what to do: (a) add research tasks to contact's backlog in Contacts_Actual.md, (b) try alternative method, or (c) skip. NEVER pretend research is complete.
+
+**New Contact Standard Flow**: When creating new contact profiles (research, LinkedIn, email sync), also add them to Contacts_Actual.md [70KB] with appropriate context and status.
+
+### Contacts_Actual vs Contacts_Later vs Work Tasks:
+
+**Purpose Clarification:**
+
+**`Contacts_Actual.md`** [70KB] = BACKLOG
+- What was agreed/discussed with people
+- Relationship status and history
+- Context for when working with that contact
+- NOT your immediate to-do list
+
+**`Contacts_Later.md`** = FUTURE BACKLOG
+- Contacts to revisit when milestone met
+- "Come back when ARR > $XM" type situations
+
+**`Tasks/work_tasks.md`** [14KB] = ACTUAL TO-DO LIST (NEW)
+- What YOU need to work on THIS WEEK
+- Organized by priority (P0/P1/P2/P3)
+- Agent helps execute these
+- See `MainCRM/Inbox/inbox_processing_rules.md` for workflow
+
+**When to use each:**
+
+**Contacts_Actual** [70KB] - Add when:
+- Actively in conversation with contact
+- Part of current fundraising pipeline
+- Need to track relationship status
+
+**Contacts_Later** - Add when:
+- Need to return when milestone met
+- Timing not right NOW
+
+**Work Tasks** - Add when:
+- YOU need to do something THIS WEEK/MONTH
+- Decision or action required
+- Subset pulled from Contacts_Actual [70KB] backlog
+
+**Key Difference**: 
+- Contacts_Actual [70KB]/Later = Context and backlog (reference)
+- Work Tasks = Active work (execution)
+
+### What Goes Where:
+
+**Contact Profile Files** (`Contacts/[Name]/[Name].md`) contain ONLY:
+
+- Contact information and communication channels (FACTS)
+- Professional background and biography (FACTS)
+- Current projects and investments (FACTS)
+- Communication history summaries (FACTS - what happened, not what to do)
+- **Relationship to [COMPANY_NAME]** (FACTS - how connected, why relevant)
+- **NO action items, tasks, or next steps**
+- **NO analysis, suggestions, or strategic considerations**
+- **NO "Meeting Opportunity", "Next Discovery Steps", "Potential Discussion Topics"**
+- **NO "Strategic Value", "Notes for [Owner]", or priority assessments**
+
+**`Context/Contacts_Actual.md`** [70KB] contains (BACKLOG):
+
+- Relationship status and context
+- What was discussed/agreed
+- Commitments and next steps (as reference)
+
+**`Tasks/work_tasks.md`** [14KB] contains (ACTIVE WORK):
+
+- Subset of items from Contacts_Actual [70KB] that need work THIS WEEK
+- Direct tasks user adds
+- Organized by priority (P0/P1/P2/P3)
+
+**Archive Rule**: When Contacts_Actual.md grows too large, old/completed items can move to profiles as historical record with `[ARCHIVED from Contacts_Actual.md: date]`. Never duplicate between files.
+
+### Synchronization Workflow:
+
+**NEW (Nov 2025):** Processing now uses three-stage system. See `MainCRM/Inbox/inbox_processing_rules.md`
+
+**Quick version:**
+1. Add communication facts to profile
+2. Update relationship status in `Contacts_Actual.md` [70KB]
+3. Add work items to `Tasks/work_tasks.md` [14KB] (not Contacts_Actual)
+4. Keep Contacts_Actual [70KB] as backlog/reference only
+
+---
+
+## Research Tools (Perplexity API)
+
+**Location**: `MainCRM/Scripts/ResearchTools/`  
+**Technical Docs**: `MainCRM/Scripts/ResearchTools/RESEARCH_TOOLS.md`  
+**API Config**: `SharedWorkspace/Personal/Secrets/credentials.yaml`
+
+### Quick Commands
+
+**Contact Research** (People):
+- Natural language: `"do web research for [Person Name]"`
+- CLI: `python3 contact_research.py --name "Name" --email "email" --linkedin "slug" --company "Company" --context "extra details" --save-folder "../../Contacts/Name"`
+- Output: `Contacts/{Name}/{Name}_research.md` + auto-updates profile
+
+**Company Research** (Organizations):
+- Natural language: `"do company research for [Company Name]"`
+- CLI: `python3 company_research.py --name "Company" --type firm --website "domain.com" --context "key people, size" --save-folder "../../../Companies/Firm: Company"`
+- Output: `Companies/{Type}: {Name}/{Name}_research.md` + auto-updates profile
+
+**General Research** (Topics):
+- Natural language: `"research: [question]"`
+- CLI: `python3 general_research.py --query "Question?" --auto-save`
+- Output: `Research/{Topic}_research.md`
+
+**Disambiguation**: Use `--context` flag with extra details (key people, location, previous employers, distinctive facts) when name is common or multiple entities exist.
+
+### LinkedIn Research
+
+**Purpose**: Automated LinkedIn profile scraping with automatic profile updates.
+
+**How to request** (natural language):
+- "do linkedin research for [Person Name]"
+- "get [Person Name]'s LinkedIn profile"
+
+**What happens automatically**:
+1. ✅ **Intelligent slug detection**: Searches ALL files in contact folder for LinkedIn URL
+   - Main contact file (Name.md)
+   - Existing linkedin.md file
+   - Research file (*_research.md)
+   - Email file (*emails.md)
+   - Any other .md files
+   - Uses exact slug if found ANYWHERE in contact data
+   - Only falls back to name-based search if slug not found
+2. ✅ Scrapes LinkedIn profile (requires login session)
+3. ✅ Saves to `Contacts/{Name}/{Name} linkedin.md` (VERBATIM LinkedIn content)
+4. ✅ **Creates main contact file** `Contacts/{Name}/{Name}.md` if it doesn't exist
+   - Extracts key info: Name, Headline, Location, Current Role
+   - Creates enriched summary from LinkedIn About section
+   - Adds Professional Background section with current position
+   - Includes source note: "LinkedIn research conducted on [date]"
+5. ✅ **Updates existing contact file** if it already exists
+   - Adds Professional Summary from LinkedIn About section (if not already present)
+   - Updates Last Updated and CANONICAL verification dates
+   - Uses semantic merging (preserves existing content)
+
+**Script location**: `MainCRM/Scripts/LinkedinDev/linkedin_research.py`
+
+**Manual usage** (if needed):
+```bash
+cd MainCRM/Scripts/LinkedinDev
+python3 linkedin_research.py --contact-folder "../../Contacts/John Doe"
+```
+
+**Key improvements**: 
+- The `--contact-folder` flag now intelligently searches ALL files in the contact's folder for LinkedIn URLs, ensuring we always use the correct, verified slug when it exists anywhere in the contact's data (linkedin.md, emails, research files, etc.). This avoids unnecessary name-based searches and ensures data accuracy.
+- **Recommendations tracking**: Received and Given recommendations are now extracted separately from their respective tabs, ensuring accurate differentiation. The scraper detects the active tab panel and extracts only from the visible content area.
+- **Skills extraction**: Now follows proper detail page navigation pattern - clicks "Show all skills", navigates to detail page, extracts clean skill names (no endorsement counts, no "Endorse" text), and clicks back to profile.
+
+**Documentation**:
+- `MainCRM/Scripts/LinkedinDev/QUICK_REFERENCE.md` - Usage guide
+- `MainCRM/Scripts/LinkedinDev/AUTO_UPDATE_README.md` - Auto-update details
+
+---
+
+## Communication Channels & Scripts
+
+### Telegram Messages
+
+**Master list**: `MainCRM/Context/sync_list_telegram.txt`
+
+**⚠️ CRITICAL: Interactive Workflow - NEVER auto-save without confirmation**
+
+**Adding new contacts**:
+
+**Case 1: User provides Telegram handle directly** (e.g., "add @contact_handle"):
+
+1. **Get user_id**: Search with provided handle
+
+   ```bash
+   cd MainCRM/Scripts && source venv/bin/activate
+   python3 telegram_find_handles.py --person "Name" --search --query "handleOrName"
+   # Returns JSON with user_id: {"user_id": 12345678, "username": "@handle", ...}
+   ```
+
+2. **Save with user_id**: Use user_id from search results
+
+   ```bash
+
+   python3 telegram_find_handles.py --person "Name" --save "@handle" --user-id 12345678
+   ```
+
+**First sync**: Download all messages
+
+   ```bash
+   python3 telegram_sync.py --person "Name"
+   ```
+
+**Case 2: Need to find handle** (user doesn't provide handle):
+
+1. **Search**: Run search script, show results with user_id to user
+
+   ```bash
+   cd MainCRM/Scripts && source venv/bin/activate
+
+   python3 telegram_find_handles.py --person "Name" --search --query "SearchTerm"
+   # Returns JSON with user_id: {"user_id": 12345678, "username": "@handle", ...}
+   ```
+
+2. **ASK USER for confirmation**: Present results, ask:
+   - "Found [Name] as [@handle] with user_id [12345678]. Is this correct?"
+   - "Should this be #DO_SYNC or #DO_NOT_SYNC?"
+   - Wait for user response
+3. **ONLY AFTER confirmation**: Save handle WITH user_id
+
+   ```bash
+   python3 telegram_find_handles.py --person "Name" --save "@handle" --user-id 12345678
+   ```
+
+4. **First sync**: Download all messages
+
+   ```bash
+   python3 telegram_sync.py --person "Name"
+   ```
+
+**If not found**: Ask user for status and save:
+
+- `#NOT_ON_TELEGRAM` - person doesn't use Telegram
+
+- `#NOT_CONNECTED` - on Telegram but not in your contacts yet
+
+**⚠️ CRITICAL**: ALWAYS include --user-id when saving! Without it, sync will be 3x slower or fail.
+
+**NEVER**:
+
+- ❌ Auto-save handles without asking (except Case 1 where user provided handle)
+- ❌ Guess if uncertain match is correct
+
+**Search tips** (AI self-guidance):
+
+- **Russian names priority**: For Russian-sounding names (e.g., Dmitry, Alexey, common surnames), search in Russian FIRST (Дмитрий, Алексей), then English if not found
+- **Query strategy**: Last name first (less common) → first name → diminutive → company name
+
+- **Name variants**: Both spellings (different transliterations), diminutives (Alexander→Alex/Sasha, Dmitry→Dima), transliterations (Dmitry/Dmitri/Dmitriy)
+- **Preview purpose**: Verify via message context (company mentions, mutual connections, topics), phone number, recent activity
+- **Multiple accounts**: Choose active one (recent messages), note secondary in profile
+- **Not found**: Try 2-3 search variants (Russian → English → diminutive), then ask user
+
+**Regular operations**:
+
+```bash
+cd MainCRM/Scripts && source venv/bin/activate
+
+# Sync one contact (incremental - only new messages)
+python3 telegram_sync.py --person "Name"
+
+# Reload contact from specific date (rewrite period)
+python3 telegram_sync.py --person "Name" --since "2025-10-01"
+
+# Sync all #DO_SYNC contacts (weekly batch)
+python3 telegram_sync.py --all
+
+```
+
+**Sync Modes**:
+
+- **First sync**: No timestamp → downloads all messages
+- **Incremental**: Uses `[DONE:timestamp]` → appends only new messages (default)
+- **Reload**: Uses `--since DATE` → rewrites messages from date (preserves older)
+
+**Tags**: `#DO_SYNC` (business), `#DO_NOT_SYNC` (personal), `#NOT_ON_TELEGRAM` (not on platform), `#NOT_CONNECTED` (on platform, not connected)
+
+**Docs**: See `MainCRM/Specs/TELEGRAM_SYSTEM_README.md` for complete documentation.
+
+---
+
+### Telegram Inbox Sync (AI Inbox)
+
+**Purpose**: Sync messages from "[AI_INBOX_NAME]" Telegram group where user sends notes to self.
+
+**Location**: Messages saved to `MainCRM/Inbox/telegram ai inbox.md`
+
+**Quick Commands**:
+
+```bash
+cd MainCRM/Scripts
+source venv/bin/activate
+
+# Incremental sync (recommended - get new messages since last sync)
+python3 telegram_inbox_sync.py
+
+# Reload all messages from beginning
+python3 telegram_inbox_sync.py --reload
+
+# Reload from specific datetime (supports multiple formats)
+python3 telegram_inbox_sync.py --since "2025-10-21"              # Date only (00:00:00)
+python3 telegram_inbox_sync.py --since "2025-10-21 14:30"        # Date + time
+python3 telegram_inbox_sync.py --since "2025-10-21T14:30:00"     # ISO format
+```
+
+**Use Case**: Perfect for multiple syncs per day. Use incremental mode for regular workflow - it automatically tracks last sync and only downloads new messages.
+
+---
+
+### Telegram Voice Message Transcription (OpenAI Whisper)
+
+**Purpose**: Transcribe voice messages when Telegram's native transcription fails (MSG_VOICE_TOO_LONG error for messages >5 minutes).
+
+**Location**: `MainCRM/Scripts/telegram_transcribe_voice.py`
+
+**Requirements**:
+- OpenAI API key stored in `Personal/Secrets/credentials.yaml` (already configured)
+- ffmpeg installed: `brew install ffmpeg`
+- openai package: `pip install openai`
+
+**Quick Commands**:
+
+```bash
+cd MainCRM/Scripts
+
+# Transcribe latest voice message from AI inbox
+python3 telegram_transcribe_voice.py
+
+# Transcribe specific message by ID
+python3 telegram_transcribe_voice.py --message-id 353474
+
+# Save to file instead of stdout
+python3 telegram_transcribe_voice.py --output transcription.txt
+```
+
+**How it works**:
+1. Loads OpenAI API key from `Personal/Secrets/credentials.yaml` (or OPENAI_API_KEY env var)
+2. Downloads voice message from Telegram (OGG format)
+3. Converts OGG → WAV using ffmpeg (16kHz, mono)
+4. Transcribes using OpenAI Whisper API (handles RU/EN code-switching excellently)
+5. Outputs transcription to terminal or file
+
+**Use Case**: When inbox sync shows `🎤 [Voice message]` without transcription due to MSG_VOICE_TOO_LONG error, use this script to transcribe locally.
+
+---
+
+### AI Inbox Processing Workflow
+
+**IMPORTANT:** Inbox processing now uses three-stage system with checkpoints.
+
+**For complete workflow, read:**
+```
+MainCRM/Inbox/inbox_processing_rules.md
+```
+
+**Quick summary:**
+- **Stage 1:** Inbox → Processing Tasks (CHECKPOINT before archiving)
+- **Stage 2:** Processing Tasks → Work Tasks (CHECKPOINT before cleanup)
+- **Stage 3:** Work Tasks → Execution (agent helps with tasks)
+
+**Key files:**
+- `MainCRM/Inbox/processing_tasks.md` - Temporary (info gathering)
+- `MainCRM/Tasks/work_tasks.md` [14KB] - Persistent (user's active to-do)
+- `MainCRM/Context/Contacts_Actual.md` [70KB] - Backlog (agreements with people)
+
+**See inbox_processing_rules.md for detailed workflow and checkpoint procedures.**
+
+---
+
+### Email Sync (DEFAULT: New Gmail System)
+
+**⚠️ IMPORTANT**: When user asks to "update emails" or "sync emails", use the **NEW Gmail System** by default.
+
+**NEW Gmail System** (October 2025) - **DEFAULT FOR ALL EMAIL OPERATIONS**
+
+**Location**: `MainCRM/Scripts/Gmail/`
+
+**Master list**: `MainCRM/Context/sync_list_gmail.txt`
+
+**Usage**:
+
+```bash
+cd MainCRM/Scripts/Gmail
+
+
+# Find email for contact
+python3 gmail_find_email.py --person "Name" --search
+python3 gmail_find_email.py --person "Name" --save "email@example.com"
+
+# Sync one contact (incremental)
+python3 gmail_sync.py --person "Name"
+
+# Reload from specific date
+python3 gmail_sync.py --person "Name" --since "2025-10-01"
+
+# Sync all #DO_SYNC contacts (batch)
+python3 gmail_sync.py --all
+
+# Generate status report
+python3 gmail_analyze_status.py
+```
+
+**Post-Sync Workflow** (CRITICAL):
+
+After `gmail_sync.py` completes, these happen **automatically**:
+
+1. ✅ Email MD file created/updated: `Contacts/[Name]/[Name] emails.md`
+2. ✅ Sync list updated: Timestamp in `sync_list_gmail.txt`
+
+After sync, these happen **automatically** (NEW - October 2025):
+3. ✅ **Contact profile updated**: Adds/updates "Email Communication" section with:
+
+- Email count and date range
+- Key topics detected (from subjects)
+- Link to email file
+
+4. ✅ **Action items detected**: Scans recent emails for potential tasks from patterns like "I'll do X", "Can you do Y?"
+5. ✅ **Contacts_Actual.md** [70KB] **updated** (if contact is active fundraising contact):
+   - Updates "Last Contact" date
+   - Adds HTML comment if action items detected
+
+**Manual review needed**:
+
+- Review detected action items and add specific tasks to Contacts_Actual.md
+- Verify auto-generated email summary accuracy
+- Update status/context based on email content
+
+**Example Profile Update**:
+
+```markdown
+## Email Communication
+[CANONICAL: Gmail download October 21, 2025]
+
+**Email Communication Summary** (27 emails, Aug 2022 - Nov 2023):
+
+Partnership discussions, O-1 visa support, hiring intros, investor list sharing.
+
+**Full email history**: [Name emails.md](./Name%20emails.md)
+```
+
+**Tags**: `#DO_SYNC` (business), `#DO_NOT_SYNC` (personal), `#NO_EMAIL` (not found), `#BOUNCED` (invalid)
+
+**Docs**: See `[Legacy_Folder_A]/Gmail_temp/` for implementation plan and full documentation.
+
+---
+
+### Legacy Gmail System (DEPRECATED - Use Only When Specifically Requested)
+
+**⚠️ DEPRECATED**: The old `gmail_downloader_api.py` script is deprecated as of October 2025. **Use the new Gmail system above by default.**
+
+**Location**: `MainCRM/Scripts/gmail_downloader_api.py`
+
+**Only use this legacy system when**:
+
+- User explicitly asks for "legacy Gmail system" or "old Gmail downloader"
+- User specifically mentions `gmail_downloader_api.py`
+- User asks to use the "old email system"
+
+**Usage** (legacy):
+
+```bash
+cd MainCRM/Scripts
+python3 gmail_downloader_api.py --person "Full Name"
+```
+
+**Known issue**: First run may error with `persisted_addresses` - just run twice.
+
+**Why deprecated**:
+
+- No automatic profile updates
+- No action item detection
+- No Contacts_Actual.md [70KB] integration
+- No incremental sync capability
+- Requires manual processing of email data
+
+**Migration**: All contacts should use the new Gmail system (`Scripts/Gmail/`) for email synchronization.
+
+---
+
+## Communication Standards
+
+**Important**: Real communication standards (timing, response expectations, priority rules) live in this `.cursorrules` file. If a standard is important enough to follow, it belongs here. If it's not important, don't write it down.
+
+**Communication Channels**: Contact preferences and our preferences for communication channels are documented in contact profiles (see template below), NOT in Contacts_Actual.md [70KB].
+
+---
+
+## Communication Style Guidelines
+
+**When drafting messages (any type, any language), use this ultra-concise style:**
+
+**Core Characteristics**:
+
+- **Maximum compression**: Only essential facts, zero fluff
+- **High information density**: Every word must carry weight
+- **Numbers and facts**: Company names, revenue, funding, rankings, locations
+- **Selective numbers**: Only 2-3 most relevant numbers per email (e.g., $XM ad spend, $YM ARR) - not full metric dumps
+- **Zero adjectives or marketing language**: No "amazing", "great", "wonderful"
+- **Pure facts**: Let achievements speak for themselves
+- **Warm but professional**: Friendly without being flowery
+- **Confident and direct**: No hedging, no over-explanation
+- **Short paragraphs**: 2-4 sentences max per paragraph
+
+**What NOT to Include**:
+
+- ❌ Detailed background stories
+- ❌ "I hope this is valuable" / "I think this could be helpful" language
+- ❌ Emotional commentary or reactions
+- ❌ Heavy formatting or separate sections
+- ❌ Elaborate explanations of connections
+- ❌ Multiple reasons piled up
+- ❌ Too many metrics (keep to 2-3 most impactful numbers only)
+
+**Request Framing**:
+
+- Downplay asks: "локальный запрос" (Russian) or casual framing (English)
+- Lead with broader value, not the ask
+- Add practical context (geography, timing, mutual benefit)
+- No pressure, no selling
+
+**Core Principle**: High-density facts, minimal words, let people connect the dots themselves.
+
+---
+
+**Example 1 - Russian Introduction**:
+
+```
+Всем привет!
+
+Хочу вас познакомить.
+
+[Person A] - фаундер [Company Alpha], до этого [Company Beta], сейчас инвестор и board member в [Company Gamma], инкубирует новые проекты, живёт в [City A].
+
+[Person B] и [Person C] - ко-фаундеры [Company Delta] (топ-платформа в [Region], подняли $XM+, выручка $YM+ в год). Сейчас они развивают [Product Epsilon] в [Region 2]. Ранние инвесторы в [COMPANY_NAME]. Живут в [City B].
+
+У [Person A] есть локальный запрос про поиск [Role] в стартап, но мне кажется вам в принципе будет интересно познакомиться, тем более что вы живёте почти рядом.
+```
+
+**Example 2 - English Introduction**:
+
+```
+[To be filled with actual example when available]
+```
+
+---
+
+---
+
+## Documentation Standards
+
+Follow same principles as Strategy repository ([REF: ../Strategy/.cursorrules](../Strategy/.cursorrules)):
+
+**Source Tracking**:
+
+- `[CANONICAL]` - First/authoritative mention
+- `[CONFIRMED: source]` - Verified from specific source
+- `[REF: path/file.md#section]` - Cross-reference
+- `[PLACEHOLDER: owner]` - Missing info with ownership
+
+**Key Principles** (adapted for CRM context):
+
+- Every statement needs traceable source
+- Mark where information comes from (meeting, email, LinkedIn, etc.)
+- Date all updates
+- No hallucinated content
+- Quality > quantity
+
+---
+
+## Contact Profile Template
+
+### ⚠️ CRITICAL: PROFILES ARE FACTS ONLY
+
+**ABSOLUTE RULE**: Contact profiles contain ONLY factual information. NO analysis, suggestions, plans, or strategic considerations.
+
+**Profiles contain ONLY**:
+
+- ✅ Contact information and communication channels
+- ✅ Professional background (verified facts)
+- ✅ Communication history (what actually happened)
+- ✅ Relationship to Elly (factual connection, how we met)
+- ✅ Link to company profile (if applicable) - for full team context
+
+**NEVER include in profiles**:
+
+- ❌ Action items or task lists
+- ❌ "Next steps" sections
+- ❌ Follow-up reminders or suggestions
+- ❌ "Tasks from contact" or "Tasks on our side"
+- ❌ Any checkbox items [ ]
+- ❌ "Meeting Opportunity" sections
+- ❌ "Next Discovery Steps"
+- ❌ "Potential Discussion Topics"
+- ❌ "Strategic Value" or "Strategic Considerations"
+- ❌ "Notes for [Owner]" with analysis/suggestions
+- ❌ Priority levels, timing suggestions, or recommendations
+- ❌ ANY proposals, suggestions, or plans
+- ❌ Information about OTHER people from the same company (roles, responsibilities, who is primary contact, etc.)
+
+**Company roles and team structure**:
+
+- ✅ Write in company profile: roles of all people, primary contacts, team hierarchy
+- ✅ Write in person's profile: ONLY about this specific person
+- ✅ Add link to company profile for full team context
+
+**Tasks and action items belong in:**
+
+- `Context/Contacts_Actual.md` [70KB] - Backlog (what was discussed/agreed with contact)
+- `Context/Contacts_Later.md` - Future backlog (revisit when milestone met)
+- `Tasks/work_tasks.md` [14KB] - Active work (what to do THIS WEEK)
+
+**Profiles are factual reference documents**, not strategic planning or task documents.
+
+### Basic Structure:
+
+```markdown
+# [Full Name] - Profile
+
+**Role**: [Position] at [Company] [CANONICAL]
+**Contact Date**: [Date] ([Method]) [CANONICAL]
+**Context**: [How connected] [CONFIRMED: source]
+
+**Communication Channels**:
+- **Email**: [email] [CANONICAL] - [Contact's preference / our assessment]
+- **Phone**: [number] or [PLACEHOLDER] - [Contact's preference]
+- **LinkedIn**: [URL] [CANONICAL - Verified YYYY-MM-DD] - [Contact's preference]
+- **Telegram**: [@handle] [if applicable] - [Contact's preference]
+- **Text Messages**: [if applicable] - [Contact's preference]
+- **Preferred channel**: [Which channel we find most effective for this contact]
+
+Note: Indicate contact's attitude to each channel and which we prefer to use.
+
+---
+
+## Contacts_Actual.md [70KB] Format Rules
+
+**Header line** (after ## Name): ONE PARAGRAPH max. Super compressed key facts - like tags/keywords. Just essentials to recognize contact: role, company, specialization, how connected. Dense bullet-point style, NOT full sentences or detailed descriptions. Think "quick lookup" not "biography".
+
+**One-line Status**: ⚠️ **ALWAYS ONE LINE ONLY** ⚠️ 
+
+Current state in ONE SENTENCE. Period. Examples:
+- "New contact, need to reach out."
+- "Waiting for response by Thursday."
+- "Waiting for Maxim's decision on investment."
+- "Met Oct 20, CMO meeting scheduled Nov 6 for webinar planning, awaiting community invite."
+
+**ABSOLUTE RULE**: 
+- ❌ NO multi-paragraph status explanations
+- ❌ NO detailed meeting summaries in status
+- ❌ NO strategic analysis in status
+- ✅ Status = ONE sentence, current state, that's it
+
+**Tasks section** (BACKLOG - for context):
+- Use "Tasks from [Name]" and "Tasks on our side" to document what was discussed/agreed
+- This is REFERENCE/BACKLOG - active work items go in `Tasks/work_tasks.md` [14KB]
+- If no specific tasks discussed - just use Status field, delete Tasks sections
+
+**Purpose:** Contacts_Actual [70KB] provides context when working on related work_tasks.md [14KB] items. It's not your daily to-do list.
+
+---
+
+## Contacts_Later.md Format Rules
+
+**Header line** (after ## Name): ONE PARAGRAPH max. Same as Contacts_Actual.md [70KB].
+
+**Last Contact**: Date of last interaction (kept in Contacts_Later for historical context)
+
+**Return When**: Specific milestone or condition to revisit this contact
+
+**One-line Status**: Brief summary including why we're waiting
+
+**ABSOLUTE RULE**: 
+- ❌ NO "when returning" tasks in Contacts_Later.md
+- ✅ Focus on the condition/milestone, not actions
+
+---
+
+## Professional Background
+[CANONICAL: LinkedIn YYYY-MM-DD]
+
+### Current Role: [Company] (Start - Present)
+**Position**: [Title]
+**Location**: [City, Country]
+
+**Company Context**: [What company does]
+
+### [Previous Roles]
+[List in reverse chronological order]
+
+---
+
+
+## Education
+### [University] (Years)
+
+**Degree**: [Degree] in [Field]
+
+---
+
+## Background & Achievements
+- [Key achievements, awards, notable facts]
+
+---
+
+## Relationship to [COMPANY_NAME]
+
+**Why Relevant**:
+1. [Category]: [Details]
+
+2. [Category]: [Details]
+
+**Potential Value**:
+- [Specific introductions]
+- [Advisory potential]
+- [Investment interest]
+```
+
+**File structure in contact folder**:
+
+- `[Name].md` - Profile (edit manually)
+- `[Name] linkedin.md` - Full LinkedIn profile content (edit manually, complete source data)
+- `[Name] emails.md` - Email history (generated by script, DO NOT edit manually)
+- `[Name] telegram.md` - Telegram messages (generated by script, DO NOT edit manually)
+- `YYYY-MM-DD - [Meeting Title].txt` - Full transcript when available (Fireflies, Zoom, etc.)
+- `YYYY-MM-DD - Meeting Notes.md` - Manual notes when no transcript available
+
+**Meeting files rule**: One file per meeting - full transcript when available, meeting notes only when no transcript
+
+**⚠️ CRITICAL - NEVER EDIT AUTO-GENERATED FILES**:
+
+- `[Name] emails.md` and `[Name] telegram.md` are AUTO-GENERATED by scripts
+- These files are populated and updated ONLY by scripts (gmail_downloader_api.py and telegram_sync.py)
+- NEVER edit these files manually - any manual edits will be overwritten on next sync
+- If updates needed: rerun the appropriate script instead of editing
+- ONLY exception: User explicitly requests to ignore this rule
+
+**Sync list format** (updated 2025-10-18):
+
+```
+Name -> @handle [ID:user_id] #TAG [DONE:timestamp]
+
+Example:
+Contact A -> @contact_a [ID:12345678] #DO_SYNC [DONE:2025-10-18T00:25:00]
+```
+
+**⚠️ user_id is REQUIRED** for fast sync (3x faster - 6 sec vs 20 sec per contact)
+
+**Telegram file format** (updated 2025-10-18):
+
+```
+# [Name]
+
+## Telegram history with [Display Name] (handle: @username)
+
+2023-01-15T10:30:00+00:00 me: Your message text
+
+2023-01-15T12:45:00+00:00 ←←: Their reply
+
+2023-01-16T08:00:00+00:00 me: Another message
+```
+
+**Key format details**:
+
+- **Message order**: Chronological (oldest first at top, newest last at bottom) ← IMPORTANT!
+
+- **Your messages**: Marked with `me`
+- **Their messages**: Marked with `←←` (double left arrow)
+- **No bullet**: Messages start with timestamp directly (no "- " prefix)
+- **Blank lines**: Between each message for readability
+- **To find newest messages**: Scroll to END of file, not beginning
+
+**Example of well-structured contact**: See contact folder examples in `Contacts/` directory
+
+---
+
+## LinkedIn Profile System
+
+**When user asks to update LinkedIn or download LinkedIn profile**:
+
+### ⚠️ CRITICAL RULES - ALWAYS FOLLOW:
+
+1. **ALWAYS run the LinkedIn scraper tool** (`linkedin_helper.py`) to get fresh data - NEVER use old cached JSON files
+2. **ALWAYS follow the workflow from `.cursorrules`** - Check this section before starting
+3. **ALWAYS use CANONICAL format** with download dates: `[CANONICAL - Downloaded YYYY-MM-DD]`
+4. **NEVER rely on old cached files** unless user explicitly requests using cached data
+
+**Tool Location**: `MainCRM/Scripts/LinkedinDev/linkedin_helper.py`
+**Usage**: `from linkedin_helper import quick_research; data = quick_research("linkedin-slug")`
+
+### Step 1: Use LinkedIn Scraper Tool
+
+1. **Run LinkedIn scraper**: Use `linkedin_helper.py` to fetch profile data
+   ```python
+   from linkedin_helper import quick_research, cleanup
+   profile_data = quick_research("https://www.linkedin.com/in/[slug]/")
+   # or
+   profile_data = quick_research("[slug]")  # Just the slug works too
+   cleanup()  # Always cleanup when done
+   ```
+
+2. **Verify data**: Check that name, company, location, headline match expected person
+3. **If scraper fails**: Fall back to browser tool (`browser_navigate` + `browser_snapshot`) for manual extraction
+
+### Step 2: Save Full LinkedIn Content
+
+**Create separate LinkedIn file**: `MainCRM/Contacts/[Name]/[Name] linkedin.md`
+
+**⚠️ CRITICAL: COPY AS IS - NO REPHRASING**
+
+**ABSOLUTE RULE**: Copy LinkedIn content EXACTLY as it appears - word-for-word, one-to-one. DO NOT:
+- ❌ Rephrase or rewrite ANY text
+- ❌ Summarize or condense sections
+- ❌ "Clean up" or edit the content
+- ❌ Translate or modify language
+- ✅ Copy everything VERBATIM from LinkedIn
+
+**Content to capture**:
+```markdown
+# [Full Name] - LinkedIn Profile
+
+**Profile URL**: [URL] [CANONICAL - Downloaded YYYY-MM-DD]
+
+---
+
+## Profile Content
+
+[Copy the FULL LinkedIn profile content here EXACTLY as written on LinkedIn]
+
+**Headline**: [Their LinkedIn headline - EXACT TEXT]
+
+**About**: 
+[Full About section - EXACT TEXT, copy-paste as is]
+
+**Experience**:
+[All positions with full descriptions - EXACT TEXT, copy-paste as is]
+
+**Education**:
+[All education entries - EXACT TEXT, copy-paste as is]
+
+**Skills & Endorsements**:
+[List key skills - EXACT TEXT, copy-paste as is]
+
+**Recommendations**:
+[Any visible recommendations - EXACT TEXT, copy-paste as is]
+
+**Additional sections**:
+[Languages, Publications, Patents, etc. - EXACT TEXT, copy-paste as is]
+
+---
+
+**Last Updated**: [Date]
+```
+
+**Purpose**: Keep complete source data for future reference. Copy everything VERBATIM - this is the canonical source, not a summary.
+
+### Step 3: Update Main Profile with Enriched Summary
+
+In `MainCRM/Contacts/[Name]/[Name].md`, add/update Professional Background section:
+
+**⚠️ ENRICHED INTELLIGENCE - NOT JUST LINKEDIN**: Combine ALL available information in the contact folder:
+- LinkedIn profile (from `[Name] linkedin.md`) - but DON'T copy-paste paragraphs verbatim
+- Email communication (from `[Name] emails.md`)
+- Telegram messages (from `[Name] telegram.md`)
+- Meeting notes (from meeting transcript files)
+- Any other files in the contact folder
+
+**What to include**:
+- ✅ Current role and company with details learned from calls/emails
+- ✅ Company type, services, client scale, tech stack (from conversations)
+- ✅ Specific details NOT on LinkedIn (e.g., "$XK/month ad spend", "[Tool Stack] costs $YK/quarter")
+- ✅ Previous positions and education
+- ✅ Key achievements, specializations, philosophy
+- ✅ Podcast, side projects, notable clients
+- ✅ ALL valuable context from your interactions
+
+**What NOT to do**:
+- ❌ Copy-paste LinkedIn About section verbatim into main profile (that stays in linkedin.md)
+- ❌ Copy-paste LinkedIn experience descriptions word-for-word (that stays in linkedin.md)
+- ❌ Delete valuable information learned from calls/emails
+
+**Add reference to full source**: `[CANONICAL: LinkedIn downloaded YYYY-MM-DD, Call/Email dates, see [Name] linkedin.md for full profile]`
+
+**Key principle**: Main profile = Your enriched knowledge about the person (LinkedIn + conversations + emails). LinkedIn file = Raw LinkedIn data.
+
+**Example**:
+```markdown
+## Professional Background
+[CANONICAL: LinkedIn downloaded 2025-10-29, Call Oct 31 2025, Emails. See [Name] linkedin.md for full profile]
+
+### Current Roles
+
+**CEO & Founder, Company Name** (Start - Present)
+- **Location**: [City, State]
+- **Type**: [Type of business]
+- **Services**: [What they do]
+- **Client Scale**: [Specific details from conversations]
+- **Tech Stack**: [Tools they use + costs if mentioned]
+- **Notable Clients**: [If mentioned]
+- **Website**: [URL]
+
+### Previous Roles:
+- **[Company]** ([Years]): [Title] - [Key details]
+
+## Education
+### [University] (Years)
+**Degree**: [Degree] in [Field]
+```
+
+### Workflow Summary:
+
+1. **Search** → Find LinkedIn profile in browser or use script
+2. **Save full content VERBATIM** → Create/update `[Name] linkedin.md` with EXACT LinkedIn text (NO rephrasing)
+3. **Create ENRICHED summary** → Update main profile with combined intelligence from ALL sources (LinkedIn + calls + emails + etc.)
+4. **Mark source** → Reference [Name] linkedin.md in main profile
+
+**CRITICAL RULES**:
+- ✅ LinkedIn file = VERBATIM copy (exact text from LinkedIn)
+- ✅ Main profile = ENRICHED intelligence (LinkedIn + calls + emails + meetings - with all valuable details)
+- ❌ NEVER copy-paste LinkedIn paragraphs verbatim into main profile
+- ❌ NEVER delete valuable information from calls/emails when updating main profile
+
+**File structure in contact folder**:
+- `[Name].md` - Main profile (concise summary)
+- `[Name] linkedin.md` - Full LinkedIn content (complete source)
+- `[Name] emails.md` - Email history (auto-generated)
+- `[Name] telegram.md` - Telegram messages (auto-generated)
+
+---
+
+## LinkedIn Verification (Legacy)
+
+**For quick verification without full download**:
+
+1. Use browser tool: `browser_navigate` + `browser_snapshot`
+2. Verify: name, company, location, job title match
+3. Mark as `[CANONICAL - Verified YYYY-MM-DD]`
+4. If only web search, mark `[TO BE VERIFIED]`
+
+---
+
+## Profile Quality Checklist
+
+Before marking profile complete:
+
+- [ ] Folder created with proper name
+- [ ] Email file created and populated
+- [ ] Profile file with all sections
+- [ ] LinkedIn profile downloaded to `[Name] linkedin.md` (if available)
+- [ ] LinkedIn verified in browser
+- [ ] Email address found
+- [ ] Communication history documented
+- [ ] Relationship to company analyzed
+- [ ] Sources documented with dates
+
+---
+
+## Common Mistakes to Avoid
+
+- ❌ Don't mark LinkedIn `[CANONICAL]` without browser verification
+- ❌ Don't put action items in profile (only in Contacts_Actual.md [70KB])
+- ❌ Don't use web search results as canonical source
+- ❌ Don't duplicate information between profile and Contacts_Actual.md [70KB]
+
+- ❌ Don't create profiles without checking existing email/telegram files
+
+---
+
+## Tools & Resources
+
+**LinkedIn profiles**: Always use browser tool (`browser_navigate` + `browser_snapshot`) to read LinkedIn profiles - user is logged in.
+
+## Connector Network Management
+
+**Purpose**: Track and manage introductions from our connector network to maximize fundraising opportunities.
+
+### Introduction List Management
+
+**File Location**: `MainCRM/Contacts/[Connector Name]/Intro_list.md` - Each connector has their own introduction tracking file in their contact folder
+
+**Structure**:
+
+- **Individual Files**: Each connector gets their own `Intro_list.md` in their contact folder
+- **Introduction Status Tracking**: Each potential introduction has a status
+- **Company/Person Details**: Industry, investment history, LinkedIn profiles, notes
+- **Introduction History**: Track completed introductions and outcomes
+
+**Status Legend**:
+
+- **Can Introduce** - Connector confirmed they can make the introduction
+- **Intro Successful** - Introduction was made and contact was established
+- **Intro Unsuccessful** - Introduction was attempted but failed
+- **Communication in Progress** - Currently discussing the introduction
+- **Result Achieved** - Introduction led to successful business outcome
+- **Result Not Achieved** - Introduction made but no business outcome
+
+### Connector Process Workflow
+
+**When adding new connectors**:
+
+1. **Identify Connector**: Mark person as "Connector" in their contact profile (`Investor type: Connector`)
+2. **Create Intro List**: Create `Intro_list.md` file in their contact folder
+3. **Document Network**: Add their potential introductions to their `Intro_list.md`
+4. **Track Status**: Update introduction status as progress is made
+5. **Follow Up**: Regular check-ins on introduction progress
+
+**When processing introductions**:
+
+1. **Request Introduction**: Contact connector to request specific introduction
+2. **Update Status**: Change status from "Can Introduce" to "Communication in Progress" in their `Intro_list.md`
+3. **Track Outcome**: Update status based on introduction success/failure
+4. **Document Results**: Move completed introductions to "Introduction History" section with outcomes
+
+**File Template Structure**:
+
+```markdown
+# [Connector Name] - Introduction Network
+
+**Connector**: [Name]
+**Role**: [Position/Company]
+**Type**: [Connector type description]
+**Status**: [Connector status]
+**Last Updated**: [Date]
+
+## Introduction Status Legend
+[Status definitions]
+
+---
+
+## Potential Introductions
+
+| Company/Person | Industry/Investment | Status | Notes |
+|---|---|---|---|
+| **[Name]** | [Details] | [Status] | [Notes] |
+
+---
+
+## Introduction History
+
+*[Completed introductions and outcomes]*
+
+---
+
+## Notes
+- Update status as introductions are requested and made
+- Document outcomes and follow-ups in this file
+- Cross-reference with Contacts_Actual.md [70KB] for active introduction requests
+```
+
+**Key Connectors** (with Intro_list.md files):
+
+- **[Connector A]** - [Role] at [Company A], extensive investor network (N+ connections documented)
+- **[Connector B]** - Key fundraising connector, introduced multiple investors ([Fund A], others)
+- **[Connector C]** - Strategic connector and introducer ([Company B] founder)
+- **[Connector D]** - High-value connector to [Industry] investors ([Company C], [Company D], [Company E] backers)
+- **[Connector E]** - Active connector, can provide intro to [Fund B]
+- **[Connector F]** - Family office connector, works on success fee basis
+- **[Connector G]** - [Industry] connector (introduced [Contact X]/[Company F])
+
+**Integration with Contact Management**:
+
+- Connector status tracked in individual contact profiles (`Investor type: Connector`)
+- Introduction network details maintained in `Contacts/[Name]/Intro_list.md`
+- Introduction requests managed through `Contacts_Actual.md` [70KB]
+- Regular updates to individual intro lists as network develops
+
+---
+
+## Git Operations
+
+**Contributors should avoid using `<>` characters in filenames** for Windows compatibility
+
+- Agent will handle any files with special characters that slip through
+
+---
+
+## Legacy Scripts Reference (Use with Caution)
+
+⚠️ **WARNING**: These scripts may be outdated and will likely be updated in future. Use these instructions carefully and verify they still work.
+
+### Available Scripts in `MainCRM/Scripts/Old/`
+
+- If the user asks to "generate comprehensive name synonyms/variations for people to aid email search" or "produce regex patterns for name-based email search":
+  - Use script `MainCRM/Scripts/Old/generate_name_synonyms.py`
+  - Run from `MainCRM/Scripts/Old`:
+    - `python generate_name_synonyms.py`
+  - Inputs: `people.txt` in the same folder
+  - Outputs: `name_synonyms.md`, `email_search_patterns.md`
+
+- If the user asks to "create people_with_synonyms.txt using only fixed diminutives (no fuzzy)" or "expand first-name diminutives into alternative lines":
+  - Use script `MainCRM/Scripts/Old/create_people_synonyms.py`
+  - Run from `MainCRM/Scripts/Old`:
+    - `python create_people_synonyms.py`
+  - Inputs: `people.txt`
+  - Outputs: `people_with_synonyms.txt` (+ summary at end)
+
+- If the user asks to "clean up duplicate Gmail email sections in person .md files, keep only latest download" or "dedupe repeated 'Gmail Emails - Downloaded' sections":
+  - Use script `MainCRM/Scripts/Old/cleanup_duplicate_emails.py`
+  - Run from `MainCRM/Scripts/Old`:
+    - Dry run: `python cleanup_duplicate_emails.py --dry-run --dir ../People_from_Notion`
+    - Apply: `python cleanup_duplicate_emails.py --dir ../People_from_Notion`
+  - Behavior: detects multiple sections starting with `## Gmail Emails - Downloaded YYYY-MM-DD HH:MM:SS`, keeps the latest, removes older ones
+
+- If the user asks to "analyze cross-references/mentions between .md contact files" or "build a simple dependency map of markdown mentioning other markdown":
+  - Use script `MainCRM/Scripts/Old/analyze_dependencies.py`
+  - Run from `MainCRM/Scripts/Old`:
+    - `python analyze_dependencies.py`
+  - Output: `dependencies_report.md` listing `A.md -> B.md, C.md` based on mentions
+
+- If the user asks to "dedupe repeated content inside Full email content code blocks in person .md files" or "remove duplicate paragraphs/lines inside fenced blocks after **Full email content":
+  - Use script `MainCRM/Scripts/Old/dedupe_md_full_email_content.py`
+  - Run from `MainCRM/Scripts/Old`:
+    - `python dedupe_md_full_email_content.py`
+  - Inputs: `people_emails.json` for person list; operates on corresponding `Person Name.md` files in the same directory
+  - Behavior: within fenced blocks following lines beginning with `**Full email content`, removes duplicate paragraphs first, then duplicate lines; preserves formatting where possible
